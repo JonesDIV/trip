@@ -1,0 +1,1065 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#231B4D">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Our Trip">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23231B4D'/%3E%3Cpath d='M32 12c6 7 6 14 0 21-6-7-6-14 0-21zM32 52c-6-7-6-14 0-21 6 7 6 14 0 21zM12 32c7-6 14-6 21 0-7 6-14 6-21 0zM52 32c-7 6-14 6-21 0 7-6 14-6 21 0z' fill='%23F4B63A'/%3E%3C/svg%3E">
+<title>India &amp; Thailand Planner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Hind:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: mobile-first travel notebook. Header + arched countdown hero (itinerary tab), bottom tab bar on phones / sticky top tabs on wide screens. Palette from marigold garlands, rani pink, peacock teal and indigo night; jaali lattice + toran bead string as ornament. */
+:root{
+  --paper:#FAF3E6; --surface:#FFFCF6; --ink:#221C35; --muted:#6E6478; --line:#EBDFCC;
+  --marigold:#D98A00; --marigold-ink:#9A5B00; --marigold-soft:#FCEBC6;
+  --rani:#B8195A; --rani-soft:#F8DDE8; --peacock:#0B6B66; --peacock-soft:#D7EEEA; --iris:#5B4FB8;
+  --hero:#231B4D; --hero-ink:#FFF4DE; --hero-muted:#CFC6EA; --hero-gold:#F4B63A; --hero-line:rgba(244,182,58,.45);
+  --danger:#B3261E; --on-accent:#FFFFFF; --shadow:rgba(34,28,53,.08);
+  --f-display:"Rozha One",Georgia,"Times New Roman",serif;
+  --f-body:"Hind",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --r:14px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#131026; --surface:#1C1836; --ink:#F4EBDA; --muted:#A79DBA; --line:#2F2A50;
+  --marigold:#F4B63A; --marigold-ink:#F4B63A; --marigold-soft:#3B2C10;
+  --rani:#F0719F; --rani-soft:#3D1A2B; --peacock:#45C7BC; --peacock-soft:#123331; --iris:#A99CF5;
+  --hero:#0D0A20; --hero-ink:#FFF4DE; --hero-muted:#B9AFD9; --hero-gold:#F4B63A; --hero-line:rgba(244,182,58,.4);
+  --danger:#F2867D; --on-accent:#0D0B1C; --shadow:rgba(0,0,0,.35); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#131026; --surface:#1C1836; --ink:#F4EBDA; --muted:#A79DBA; --line:#2F2A50;
+  --marigold:#F4B63A; --marigold-ink:#F4B63A; --marigold-soft:#3B2C10;
+  --rani:#F0719F; --rani-soft:#3D1A2B; --peacock:#45C7BC; --peacock-soft:#123331; --iris:#A99CF5;
+  --hero:#0D0A20; --hero-ink:#FFF4DE; --hero-muted:#B9AFD9; --hero-gold:#F4B63A; --hero-line:rgba(244,182,58,.4);
+  --danger:#F2867D; --on-accent:#0D0B1C; --shadow:rgba(0,0,0,.35); color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+:root{padding-top:env(safe-area-inset-top,0px);color-scheme:light}
+body{margin:0}
+img{max-width:100%}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.5}
+#paperMotif{position:fixed;inset:0;z-index:-1;pointer-events:none;background:var(--marigold);opacity:.07;
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='black' stroke-width='1.2'%3E%3Cpath d='M32 14c5 6 5 12 0 18-5-6-5-12 0-18zM32 50c-5-6-5-12 0-18 5 6 5 12 0 18zM14 32c6-5 12-5 18 0-6 5-12 5-18 0zM50 32c-6 5-12 5-18 0 6-5 12-5 18 0z'/%3E%3Ccircle cx='32' cy='32' r='3'/%3E%3Ccircle cx='0' cy='0' r='4'/%3E%3Ccircle cx='64' cy='0' r='4'/%3E%3Ccircle cx='0' cy='64' r='4'/%3E%3Ccircle cx='64' cy='64' r='4'/%3E%3C/g%3E%3C/svg%3E") 0 0/64px 64px repeat;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='black' stroke-width='1.2'%3E%3Cpath d='M32 14c5 6 5 12 0 18-5-6-5-12 0-18zM32 50c-5-6-5-12 0-18 5 6 5 12 0 18zM14 32c6-5 12-5 18 0-6 5-12 5-18 0zM50 32c-6 5-12 5-18 0 6-5 12-5 18 0z'/%3E%3Ccircle cx='32' cy='32' r='3'/%3E%3Ccircle cx='0' cy='0' r='4'/%3E%3Ccircle cx='64' cy='0' r='4'/%3E%3Ccircle cx='0' cy='64' r='4'/%3E%3Ccircle cx='64' cy='64' r='4'/%3E%3C/g%3E%3C/svg%3E") 0 0/64px 64px repeat}
+.wrap{max-width:760px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:18px 64px}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;text-wrap:balance;margin:0;line-height:1.15}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--peacock);outline-offset:2px}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.num{font-variant-numeric:tabular-nums}
+
+/* header */
+header.top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+header.top>div{min-width:0;display:grid;gap:2px}
+#tripTitle{font-size:clamp(28px,7.5vw,40px);overflow-wrap:anywhere}
+.sub{color:var(--muted);font-size:14.5px}
+.head-r{display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex:0 0 auto}
+.edit-link{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:14px;color:var(--ink);cursor:pointer;white-space:nowrap;min-height:38px}
+.mini{font-size:13px;font-weight:600;color:var(--marigold-ink);background:var(--marigold-soft);border-radius:999px;padding:4px 11px;white-space:nowrap}
+
+/* hero */
+.hero{margin-top:16px;display:grid}
+.toran{height:24px;position:relative;z-index:2;margin:0 6%;
+  background:
+   radial-gradient(circle at 50% 4px,var(--hero-gold) 0 6px,transparent 6.5px) 0 0/26px 24px repeat-x,
+   radial-gradient(ellipse 4px 7px at 50% 15px,var(--rani) 0 100%,transparent 100%) 13px 0/26px 24px repeat-x,
+   linear-gradient(var(--marigold-ink),var(--marigold-ink)) 0 3px/100% 2px no-repeat}
+.arch{position:relative;margin-top:-14px;background:var(--hero);color:var(--hero-ink);border-radius:50% 50% 20px 20px / 110px 110px 20px 20px;overflow:hidden;padding:58px 22px 26px;text-align:center;box-shadow:0 10px 30px var(--shadow)}
+.arch::after{content:"";position:absolute;inset:10px;border:1.5px solid var(--hero-line);border-radius:50% 50% 12px 12px / 100px 100px 12px 12px;pointer-events:none}
+.jaali{position:absolute;inset:0;background:var(--hero-gold);opacity:.13;pointer-events:none;
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg fill='none' stroke='black' stroke-width='1.3'%3E%3Cpath d='M20 4l4.5 11.5L36 20l-11.5 4.5L20 36l-4.5-11.5L4 20l11.5-4.5z'/%3E%3Ccircle cx='0' cy='0' r='6'/%3E%3Ccircle cx='40' cy='0' r='6'/%3E%3Ccircle cx='0' cy='40' r='6'/%3E%3Ccircle cx='40' cy='40' r='6'/%3E%3C/g%3E%3C/svg%3E") 0 0/40px 40px repeat;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg fill='none' stroke='black' stroke-width='1.3'%3E%3Cpath d='M20 4l4.5 11.5L36 20l-11.5 4.5L20 36l-4.5-11.5L4 20l11.5-4.5z'/%3E%3Ccircle cx='0' cy='0' r='6'/%3E%3Ccircle cx='40' cy='0' r='6'/%3E%3Ccircle cx='0' cy='40' r='6'/%3E%3Ccircle cx='40' cy='40' r='6'/%3E%3C/g%3E%3C/svg%3E") 0 0/40px 40px repeat}
+.hero-in{position:relative;z-index:1;display:grid;gap:4px;justify-items:center}
+.hero .eyebrow{color:var(--hero-muted)}
+.big{font-family:var(--f-display);color:var(--hero-gold);font-size:clamp(96px,30vw,168px);line-height:.95;font-variant-numeric:tabular-nums;margin-top:6px}
+.big.word{font-size:clamp(64px,18vw,104px)}
+.big-lab{font-family:var(--f-display);font-size:clamp(22px,5.8vw,30px)}
+.hero-date{color:var(--hero-muted);font-size:15px}
+.hero-row{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:12px}
+.hero-row span{border:1px solid var(--hero-line);border-radius:999px;padding:4px 12px;font-size:13.5px;color:var(--hero-ink)}
+.hero .btn{margin-top:10px}
+
+/* tabs: top on wide screens, bottom bar on phones */
+nav.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:15;background:var(--paper);display:flex;gap:4px;margin-top:18px;padding-block:8px;border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:16;background:var(--paper)}
+.tab{flex:1;min-width:0;display:flex;align-items:center;justify-content:center;gap:7px;white-space:nowrap;background:none;border:0;border-radius:10px;padding:9px 4px;font-weight:600;font-size:15px;color:var(--muted);cursor:pointer}
+.tab svg{width:19px;height:19px;flex:0 0 auto}
+.tab[aria-selected="true"]{background:var(--surface);color:var(--ink);box-shadow:0 0 0 1px var(--line)}
+.tab[aria-selected="true"] svg{color:var(--rani)}
+@media (max-width:700px){
+  nav.tabs{position:fixed;top:auto;bottom:0;left:0;right:0;margin:0;border-bottom:0;border-top:1px solid var(--line);background:var(--surface);
+    padding:6px max(8px,env(safe-area-inset-right,0px)) calc(6px + env(safe-area-inset-bottom,0px)) max(8px,env(safe-area-inset-left,0px));box-shadow:0 -8px 24px var(--shadow)}
+  .tab{flex-direction:column;gap:2px;font-size:12px;padding:6px 2px;min-height:54px}
+  .tab svg{width:23px;height:23px}
+  .tab[aria-selected="true"]{background:var(--marigold-soft);box-shadow:none}
+  .wrap{padding-block:14px calc(100px + env(safe-area-inset-bottom,0px))}
+}
+section.panel{display:grid;gap:18px;padding-top:18px;min-width:0}
+
+/* shared bits */
+.btn{border:0;border-radius:12px;padding:11px 18px;background:var(--peacock);color:var(--on-accent);font-weight:600;cursor:pointer;white-space:nowrap;min-height:44px}
+.btn.ghost{background:var(--surface);color:var(--ink);border:1px solid var(--line)}
+.btn.gold{background:var(--hero-gold);color:#231B4D}
+.btn.danger{background:none;color:var(--danger);border:1px solid var(--line)}
+.btn.small{padding:7px 13px;font-size:14px;min-height:38px}
+.btn:disabled{opacity:.5;cursor:default}
+.chips{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:0 0 auto;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 14px;font-size:14px;cursor:pointer;color:var(--muted);min-height:36px}
+.chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.group{display:grid;gap:10px;min-width:0}
+.group-h{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.group-h h2{font-size:24px}
+.gh-r{display:flex;align-items:center;gap:10px}
+.empty{border:1.5px dashed var(--line);border-radius:var(--r);padding:22px 18px;text-align:center;color:var(--muted);display:grid;gap:10px;justify-items:center;background:var(--surface)}
+.empty h3{color:var(--ink);font-size:21px}
+.notice{font-size:14px;color:var(--muted);background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:9px 13px}
+.hint{font-size:13.5px;color:var(--muted)}
+.tag{font-size:12px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;border-radius:6px;padding:2px 8px;background:var(--surface);color:var(--muted);white-space:nowrap}
+.tag.auto{color:var(--peacock)}
+.tag.ok{background:var(--peacock-soft);color:var(--peacock)}
+.tag.no{background:var(--marigold-soft);color:var(--marigold-ink)}
+.tags{display:flex;gap:6px;flex-wrap:wrap}
+.bar{height:10px;border-radius:99px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--marigold),var(--rani));transition:width .5s}
+.icon-btn{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--surface);cursor:pointer;display:grid;place-items:center;color:var(--ink);padding:0;font-size:20px;line-height:1;flex:0 0 auto}
+.icon-btn:disabled{opacity:.35;cursor:default}
+.plus{width:38px;height:38px;border-radius:50%;border:0;background:var(--rani);color:var(--on-accent);display:grid;place-items:center;cursor:pointer;padding:0;flex:0 0 auto}
+.plus svg{width:18px;height:18px;transition:transform .2s}
+.plus[aria-expanded="true"] svg{transform:rotate(45deg)}
+
+/* to-do */
+.gauge{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:grid;gap:12px}
+.g-top{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap}
+.g-num{font-family:var(--f-display);font-size:44px;line-height:1;font-variant-numeric:tabular-nums}
+.g-num span{font-size:24px;color:var(--muted)}
+.g-people{display:flex;gap:6px;flex-wrap:wrap}
+.g-people span{font-size:13.5px;border-radius:999px;padding:4px 11px;background:var(--paper);border:1px solid var(--line)}
+.g-people b{font-weight:700}
+.list{list-style:none;margin:0;padding:0;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.row{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:12px;align-items:start;padding:13px 14px;border-top:1px solid var(--line)}
+.row:first-child{border-top:0}
+.check{width:28px;height:28px;border-radius:8px;border:2px solid var(--muted);background:none;cursor:pointer;display:grid;place-items:center;padding:0}
+.check svg{width:16px;height:16px;opacity:0}
+.row.done .check{background:var(--peacock);border-color:var(--peacock)}
+.row.done .check svg{opacity:1}
+.row.done .r-title{text-decoration:line-through;color:var(--muted)}
+.r-body{min-width:0;display:grid;gap:4px;cursor:pointer}
+.r-title{font-weight:500;overflow-wrap:anywhere}
+.r-meta{display:flex;gap:6px 10px;flex-wrap:wrap;font-size:13px;color:var(--muted);align-items:center}
+.r-note{font-size:13.5px;color:var(--muted);overflow-wrap:anywhere}
+.pill{font-size:11.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;border-radius:6px;padding:2px 7px}
+.pill.book{background:var(--peacock-soft);color:var(--peacock)}
+.pill.arrange{background:var(--line);color:var(--muted)}
+.pill.trip{background:var(--rani-soft);color:var(--rani)}
+.pill.overdue{background:var(--marigold-soft);color:var(--marigold-ink)}
+.who{display:inline-flex;align-items:center;gap:5px;font-size:13px;font-weight:600;color:var(--ink)}
+.who b{width:20px;height:20px;border-radius:50%;display:grid;place-items:center;font-size:11px;color:var(--on-accent)}
+.who.w0 b{background:var(--rani)} .who.w1 b{background:var(--peacock)} .who.wb b{background:var(--marigold);color:#231B4D}
+.cost{font-size:13.5px;font-variant-numeric:tabular-nums;color:var(--muted);padding-top:3px;text-align:right}
+.inline-add{display:grid;gap:8px;background:var(--surface);border:1.5px solid var(--rani);border-radius:var(--r);padding:12px}
+.inline-add input,.inline-add select{border:1px solid var(--line);background:var(--paper);border-radius:10px;padding:10px 12px;min-width:0;width:100%;font-size:16px;min-height:44px}
+.ia-row{display:grid;grid-template-columns:1fr 1fr auto;gap:8px}
+@media (max-width:420px){.ia-row{grid-template-columns:1fr 1fr}.ia-row .btn{grid-column:1 / -1}}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fact{border-radius:var(--r);padding:12px 14px;display:grid;gap:2px;min-width:0}
+.fact.in{background:var(--rani-soft)} .fact.th{background:var(--peacock-soft)}
+.fact h3{font-size:20px}
+.fact.in h3{color:var(--rani)} .fact.th h3{color:var(--peacock)}
+.fact dl{margin:4px 0 0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:1px 10px;font-size:14px}
+.fact dt{color:var(--muted)} .fact dd{margin:0;overflow-wrap:anywhere}
+@media (max-width:420px){.facts{grid-template-columns:1fr}}
+
+/* itinerary */
+.strip{display:flex;gap:6px;overflow-x:auto;padding:2px 2px 8px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+.dbtn{flex:0 0 68px;width:68px;border:1px solid var(--line);border-radius:12px;background:var(--surface);display:grid;justify-items:center;gap:1px;padding:8px 4px;cursor:pointer;scroll-snap-align:start;min-width:0}
+.dbtn .dn{font-size:11.5px;font-weight:600;letter-spacing:.04em;color:var(--muted);text-transform:uppercase;white-space:nowrap}
+.dbtn b{font-family:var(--f-display);font-weight:400;font-size:23px;line-height:1.1}
+.dbtn .pl{font-size:11.5px;color:var(--muted);width:100%;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dbtn i{width:7px;height:7px;border-radius:50%;background:var(--line)}
+.dbtn.in i{background:var(--rani)} .dbtn.th i{background:var(--peacock)}
+.dbtn.planned .pl{color:var(--ink)}
+.dbtn.move{border-style:dashed;border-color:var(--marigold)}
+.dbtn[aria-current="true"]{border-color:var(--ink);box-shadow:0 0 0 1.5px var(--ink)}
+.dayview{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;min-width:0}
+.dv-head{padding:16px;display:grid;gap:8px}
+.dv-head.in{background:var(--rani-soft)} .dv-head.th{background:var(--peacock-soft)} .dv-head.none{background:var(--paper)}
+.dv-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.dv-top>div{min-width:0}
+.dv-head h2{font-size:clamp(26px,7vw,34px);overflow-wrap:anywhere}
+.dv-nav{display:flex;gap:6px;flex:0 0 auto}
+.sec{padding:14px 16px;border-top:1px solid var(--line);display:grid;gap:10px;min-width:0}
+.sec-h{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.journey{display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;border:1px solid var(--line);border-radius:12px;padding:11px 12px;cursor:pointer;background:var(--paper);align-items:start}
+.jicon{width:36px;height:36px;border-radius:50%;background:var(--marigold-soft);color:var(--marigold-ink);display:grid;place-items:center}
+.jicon svg{width:19px;height:19px}
+.jbody{min-width:0;display:grid;gap:2px}
+.jbody .jt{font-weight:600;overflow-wrap:anywhere}
+.jbody .jl{font-size:14px;color:var(--muted);display:grid;grid-template-columns:64px minmax(0,1fr);gap:0 8px}
+.jbody .jl span:first-child{font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding-top:2px}
+.quick{display:grid;gap:8px}
+.quick textarea{border:1px solid var(--line);background:var(--paper);border-radius:12px;padding:10px 12px;min-height:70px;resize:vertical;width:100%;min-width:0;font-size:16px}
+.quick-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.slots{display:grid}
+.slot{display:grid;grid-template-columns:100px minmax(0,1fr);gap:12px;padding:13px 16px;border-top:1px solid var(--line);cursor:pointer}
+.slot .lab{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--marigold-ink);padding-top:2px}
+.slot .txt{min-width:0;overflow-wrap:anywhere;white-space:pre-wrap}
+.slot .txt.empty-txt{color:var(--muted);font-style:italic}
+@media (max-width:440px){.slot{grid-template-columns:1fr;gap:2px}}
+.stay-row{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;padding:12px 16px;border-top:1px solid var(--line);background:var(--paper)}
+.stay-row>div{min-width:0;overflow-wrap:anywhere;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.dv-actions{display:flex;gap:8px;flex-wrap:wrap;padding:12px 16px;border-top:1px solid var(--line)}
+.thumbs{display:flex;gap:6px;overflow-x:auto}
+.thumbs button{flex:0 0 auto;width:72px;height:72px;border-radius:10px;overflow:hidden;border:0;padding:0;cursor:zoom-in;background:var(--line)}
+.thumbs img{width:100%;height:100%;object-fit:cover;display:block}
+.overview{list-style:none;margin:0;padding:0;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.ov{display:grid;grid-template-columns:62px minmax(0,1fr);gap:12px;padding:11px 14px;border-top:1px solid var(--line);cursor:pointer;align-items:start}
+.ov:first-child{border-top:0}
+.ov[aria-current="true"]{background:var(--marigold-soft)}
+.ov .d{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;line-height:1.35;padding-top:2px}
+.ov .d strong{display:block;color:var(--ink);font-weight:600}
+.ov .b{min-width:0}
+.ov .p{font-weight:600;font-size:15px;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.ov .p i{width:8px;height:8px;border-radius:50%;background:var(--line);flex:0 0 auto}
+.ov.in .p i{background:var(--rani)} .ov.th .p i{background:var(--peacock)}
+.ov .s{font-size:13.5px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.route-bar{display:grid;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px;min-width:0}
+.route{display:flex;flex-wrap:wrap;gap:6px;align-items:center;min-width:0}
+.stop{border-radius:999px;padding:3px 11px;font-size:14px;font-weight:600;white-space:nowrap;background:var(--line)}
+.stop.in{background:var(--rani-soft);color:var(--rani)} .stop.th{background:var(--peacock-soft);color:var(--peacock)}
+.stop small{font-size:12px;opacity:.8;margin-left:3px}
+.arrow{color:var(--muted);font-size:13px}
+.route-sum{font-size:14px;color:var(--muted)}
+.plan-status{font-size:14px;color:var(--peacock);font-weight:600}
+
+/* budget */
+.settle{position:relative;overflow:hidden;background:var(--hero);color:var(--hero-ink);border-radius:var(--r);padding:20px 18px;display:grid;gap:8px}
+.settle .eyebrow{color:var(--hero-muted)}
+.settle .big2{font-family:var(--f-display);font-size:clamp(24px,6vw,32px);line-height:1.2;text-wrap:balance}
+.settle .big2 em{font-style:normal;color:var(--hero-gold)}
+.settle .alt{color:var(--hero-muted);font-size:15px}
+.rate-line{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;font-size:13.5px;color:var(--hero-muted)}
+.settle .btn.ghost{background:transparent;color:var(--hero-ink);border-color:var(--hero-line)}
+.people{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (max-width:440px){.people{grid-template-columns:1fr}}
+.person{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px;display:grid;gap:6px;min-width:0}
+.person h3{font-size:22px;overflow-wrap:anywhere}
+.kvs{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:3px 10px;font-size:14.5px}
+.kvs span:nth-child(odd){color:var(--muted)}
+.kvs span:nth-child(even){text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+.cats{display:grid;gap:9px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px}
+.cat{display:grid;grid-template-columns:100px minmax(0,1fr) auto;gap:10px;align-items:center;font-size:14px}
+.cat .cb{height:9px;border-radius:99px;background:var(--line);overflow:hidden}
+.cat .cb i{display:block;height:100%;background:var(--peacock);border-radius:99px}
+.cat .cv{font-variant-numeric:tabular-nums;font-weight:600}
+.exp{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;padding:12px 14px;border-top:1px solid var(--line);cursor:pointer;align-items:start}
+.exp:first-child{border-top:0}
+.exp .t{font-weight:600;overflow-wrap:anywhere}
+.exp .m{font-size:13px;color:var(--muted)}
+.exp .a{text-align:right;font-size:15px;font-weight:600;font-variant-numeric:tabular-nums}
+.exp .a small{display:block;color:var(--muted);font-size:12.5px;font-weight:400}
+
+/* diary */
+.entry{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:grid}
+.pics{display:grid;gap:3px;background:var(--line)}
+.pics button{border:0;padding:0;cursor:zoom-in;position:relative;background:var(--line);min-width:0;overflow:hidden}
+.pics img{width:100%;height:100%;object-fit:cover;display:block}
+.pics.n1{grid-template-columns:1fr} .pics.n1 button{aspect-ratio:4/3;max-height:460px}
+.pics.n2{grid-template-columns:1fr 1fr} .pics.n2 button{aspect-ratio:1}
+.pics.n3{grid-template-columns:2fr 1fr;grid-template-rows:1fr 1fr} .pics.n3 button:first-child{grid-row:1 / 3} .pics.n3 button{min-height:110px}
+.pics.n4{grid-template-columns:1fr 1fr} .pics.n4 button{aspect-ratio:4/3}
+.pics .more{position:absolute;inset:0;display:grid;place-items:center;background:rgba(13,10,32,.55);color:#FFF4DE;font-family:var(--f-display);font-size:28px}
+.img-miss{display:grid;place-items:center;width:100%;height:100%;min-height:80px;color:var(--muted);font-size:12px;padding:6px;text-align:center}
+.entry-b{padding:14px 16px;display:grid;gap:8px;min-width:0}
+.entry-b .top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+.entry-b .top>div{min-width:0}
+.entry-b h3{font-size:23px;overflow-wrap:anywhere}
+.entry p{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;max-width:65ch}
+.moodline{display:flex;gap:8px;flex-wrap:wrap}
+.mchip{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;border-radius:999px;padding:3px 11px 3px 8px;background:var(--paper);border:1px solid var(--line)}
+.mchip i,.mood i{width:10px;height:10px;border-radius:50%;flex:0 0 auto}
+.m-amazing{background:var(--marigold)} .m-happy{background:var(--peacock)} .m-chill{background:var(--iris)} .m-tired{background:var(--muted)} .m-rough{background:var(--rani)}
+.best{background:var(--marigold-soft);border-radius:12px;padding:10px 12px;display:grid;gap:2px}
+.best .eyebrow{color:var(--marigold-ink)}
+.best div:last-child{font-family:var(--f-display);font-size:18px;line-height:1.3;overflow-wrap:anywhere}
+
+/* sheets */
+.sheet-bg{position:fixed;inset:0;background:rgba(13,10,32,.5);z-index:30;display:grid;align-items:end;justify-items:center}
+@media (min-width:640px){.sheet-bg{align-items:center}}
+.sheet{background:var(--surface);width:min(580px,100%);max-height:92vh;max-height:92dvh;overflow:auto;align-content:start;border-radius:20px 20px 0 0;padding:18px max(18px,env(safe-area-inset-right,0px)) 0 max(18px,env(safe-area-inset-left,0px));display:grid;gap:13px;overscroll-behavior:contain}
+.sheet::before{content:"";width:40px;height:4px;border-radius:9px;background:var(--line);justify-self:center;margin-top:-6px}
+@media (min-width:640px){.sheet{border-radius:20px}.sheet::before{display:none}}
+.sheet h2{font-size:26px}
+.field{display:grid;gap:5px;min-width:0}
+.field label,.flabel{font-size:13.5px;font-weight:600;color:var(--muted)}
+.field input,.field select,.field textarea{border:1px solid var(--line);background:var(--paper);border-radius:10px;padding:10px 12px;width:100%;min-width:0;max-width:100%;display:block;font-size:16px;min-height:46px}
+.field input[type="date"]{-webkit-appearance:none;appearance:none;text-align:left}
+.field input[type="date"]::-webkit-date-and-time-value{text-align:left}
+.field textarea{min-height:84px;resize:vertical}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.two>*{min-width:0}
+@media (max-width:400px){.two{grid-template-columns:1fr}}
+.sheet-actions{position:sticky;bottom:0;background:var(--surface);display:flex;gap:8px;justify-content:space-between;flex-wrap:wrap;padding:12px 0 calc(14px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line);margin-top:4px}
+.sheet-actions div{display:flex;gap:8px}
+.toggle{display:flex;align-items:center;gap:10px;font-size:15.5px;min-height:40px}
+.toggle input{width:22px;height:22px;accent-color:var(--peacock)}
+.route-row{display:grid;grid-template-columns:minmax(0,1fr) 110px 76px 40px;gap:8px;align-items:end}
+.route-row>*{min-width:0}
+@media (max-width:440px){.route-row{grid-template-columns:1fr 1fr}.route-row .field:first-child{grid-column:1 / -1}.route-row .rm{justify-self:end}}
+.mood-row{display:grid;gap:6px}
+.mood-name{font-weight:600}
+.moods{display:flex;gap:6px;flex-wrap:wrap}
+.mood{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:6px 12px;font-size:14px;cursor:pointer;min-height:38px}
+.mood[aria-pressed="true"]{border-color:var(--ink);background:var(--surface);box-shadow:0 0 0 1px var(--ink);font-weight:600}
+.ph-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(88px,1fr));gap:8px}
+.ph{position:relative;aspect-ratio:1;border-radius:10px;overflow:hidden;background:var(--line)}
+.ph img{width:100%;height:100%;object-fit:cover;display:block}
+.ph button{position:absolute;top:4px;right:4px;width:28px;height:28px;border-radius:50%;border:0;background:rgba(13,10,32,.7);color:#FFF4DE;cursor:pointer;font-size:16px;line-height:1;padding:0}
+.ph.add{display:grid;place-items:center;border:1.5px dashed var(--rani);background:var(--rani-soft);color:var(--rani);font-weight:600;font-size:14px;cursor:pointer;text-align:center;padding:6px}
+.ph.add svg{width:22px;height:22px;display:block;margin:0 auto 2px}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:40;background:rgba(8,6,20,.94);display:grid;grid-template-rows:auto minmax(0,1fr) auto;gap:10px;padding:calc(10px + env(safe-area-inset-top,0px)) max(10px,env(safe-area-inset-right,0px)) calc(14px + env(safe-area-inset-bottom,0px)) max(10px,env(safe-area-inset-left,0px));color:#FFF4DE}
+.lb-top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.lb img{max-width:100%;max-height:100%;object-fit:contain;place-self:center;min-height:0}
+.lb-nav{display:flex;justify-content:center;gap:14px;align-items:center}
+.lb .icon-btn{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.2);color:#FFF4DE}
+.gate{min-height:100vh;min-height:100dvh;display:grid;align-content:center}
+.gate .arch{padding-block:64px 34px}
+.gate-t{font-family:var(--f-display);color:var(--hero-gold);font-size:clamp(38px,10vw,56px);line-height:1.05;margin:6px 0 4px}
+.gate .hero-in{gap:10px}
+.gate-hint{color:var(--hero-muted);font-size:13.5px;max-width:34ch}
+.foot{margin-top:28px;padding-top:14px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;font-size:13.5px;color:var(--muted)}
+.foot>span{min-width:0;overflow-wrap:anywhere}
+.sync{display:inline-flex;align-items:center;gap:6px}
+.sync i{width:8px;height:8px;border-radius:50%;background:var(--peacock)}
+.sync.off i{background:var(--marigold)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div id="paperMotif" aria-hidden="true"></div>
+<div id="gate" class="gate">
+  <div class="wrap" style="width:100%">
+    <div class="hero">
+      <div class="toran" aria-hidden="true"></div>
+      <div class="arch">
+        <div class="jaali" aria-hidden="true"></div>
+        <div class="hero-in">
+          <div class="eyebrow">Daisy &amp; Siobhan</div>
+          <h1 class="gate-t">India &amp; Thailand</h1>
+          <div class="big-lab" id="gateMsg">Opening your planner…</div>
+          <button class="btn gold" id="signIn" type="button" hidden>Sign in with Google</button>
+          <button class="btn ghost small" id="switchAcc" type="button" hidden style="background:transparent;color:var(--hero-ink);border-color:var(--hero-line)">Use a different account</button>
+          <div class="gate-hint" id="gateHint"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="wrap" id="app" hidden>
+  <header class="top">
+    <div>
+      <h1 id="tripTitle">India &amp; Thailand</h1>
+      <div class="sub" id="metaLine">Add your dates and who's going.</div>
+    </div>
+    <div class="head-r">
+      <button class="edit-link" id="editTrip" type="button">Edit trip</button>
+      <span class="mini num" id="miniCount" hidden></span>
+    </div>
+  </header>
+
+  <section class="hero" id="hero" aria-label="Countdown">
+    <div class="toran" aria-hidden="true"></div>
+    <div class="arch">
+      <div class="jaali" aria-hidden="true"></div>
+      <div class="hero-in" id="heroIn">
+        <div class="eyebrow">Countdown to take-off</div>
+        <div class="big">–</div>
+        <div class="big-lab">Add your leaving date</div>
+      </div>
+    </div>
+  </section>
+
+  <div id="notice" class="notice" hidden style="margin-top:14px"></div>
+
+  <nav class="tabs" role="tablist" aria-label="Sections">
+    <button class="tab" role="tab" aria-selected="true" data-tab="days"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><span>Itinerary</span></button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="book"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 6h10M10 12h10M10 18h10M3.5 6l1.5 1.5L8 4.5M3.5 12l1.5 1.5L8 10.5M3.5 18l1.5 1.5L8 16.5"/></svg><span>To-do</span></button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="money"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2.5"/><path d="M3 10h18M15.5 14.5h2.5"/></svg><span>Budget</span></button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="diary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="14" rx="2.5"/><path d="M8.5 6l1.5-2.5h4L15.5 6"/><circle cx="12" cy="13" r="3.5"/></svg><span>Diary</span></button>
+  </nav>
+
+  <section class="panel" id="p-days">
+    <div id="dayPlanner" style="display:grid;gap:18px;min-width:0"></div>
+  </section>
+
+  <section class="panel" id="p-book" hidden>
+    <div id="todoView" style="display:grid;gap:18px;min-width:0"></div>
+    <div class="group">
+      <div class="group-h"><h2>Good to know</h2></div>
+      <div class="facts">
+        <div class="fact in"><h3>India</h3><dl>
+          <dt>Money</dt><dd>₹ Rupee (INR)</dd>
+          <dt>Time</dt><dd>UTC+5:30</dd>
+          <dt>Plugs</dt><dd>C · D · M</dd>
+          <dt>Entry</dt><dd>e-Visa before you fly</dd></dl></div>
+        <div class="fact th"><h3>Thailand</h3><dl>
+          <dt>Money</dt><dd>฿ Baht (THB)</dd>
+          <dt>Time</dt><dd>UTC+7</dd>
+          <dt>Plugs</dt><dd>A · B · C · O</dd>
+          <dt>Entry</dt><dd>Arrival card online</dd></dl></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel" id="p-money" hidden>
+    <div id="moneyView" style="display:grid;gap:18px;min-width:0"></div>
+  </section>
+
+  <section class="panel" id="p-diary" hidden>
+    <div class="group-h">
+      <div><h2>Our diary</h2><div class="hint">Photos, how you felt and the best bit of each day.</div></div>
+      <button class="btn" id="addNote" type="button">New entry</button>
+    </div>
+    <div id="noteList" style="display:grid;gap:14px"></div>
+  </section>
+  <footer class="foot"><span id="whoAmI"></span><span class="sync" id="sync"><i></i>Synced</span><button class="edit-link" id="signOut" type="button">Sign out</button></footer>
+</div>
+
+<div id="sheetRoot"></div>
+<div id="lightRoot"></div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script>
+(function(){
+const FIREBASE_CONFIG={apiKey:"AIzaSyAwHHGU5DGPIYuQTGy0XGdE5rZZ9lsMRf8",authDomain:"travel-plans-c467b.firebaseapp.com",projectId:"travel-plans-c467b",storageBucket:"travel-plans-c467b.firebasestorage.app",messagingSenderId:"1052459860134",appId:"1:1052459860134:web:baf57f00fa07ec6c1cb467"};
+const SEED={"meta":{"end":"2026-12-18","people":"Daisy & Siobhan","rate":0.8397,"rateDate":"2026-10-20","start":"2026-11-28","title":"India & Thailand","travellers":[{"budget":null,"cur":"GBP","name":"Daisy"},{"budget":null,"cur":"EUR","name":"Siobhan"}]},"tasks":{"t01":{"area":"prep","cost":null,"done":true,"due":"","kind":"plan","note":"","order":1,"title":"Agree rough route and dates together","who":""},"t02":{"area":"prep","cost":null,"done":true,"due":"","kind":"book","note":"","order":2,"title":"Flights UK → India","who":""},"t03":{"area":"prep","cost":null,"done":true,"due":"","kind":"book","note":"","order":3,"title":"Flight India → Thailand","who":""},"t04":{"area":"prep","cost":null,"done":true,"due":"","kind":"book","note":"","order":4,"title":"Flight home from Thailand","who":""},"t05":{"area":"prep","cost":null,"done":false,"due":"","kind":"book","note":"","order":5,"title":"Travel insurance for both of you","who":""},"t06":{"area":"prep","cost":null,"done":true,"due":"","kind":"plan","note":"","order":6,"title":"Apply for India e-Visa (passport needs 6+ months left)","who":""},"t07":{"area":"prep","cost":null,"done":true,"due":"","kind":"plan","note":"","order":7,"title":"Check Thailand entry rules and do the arrival card before landing","who":""},"t08":{"area":"prep","cost":null,"done":true,"due":"","kind":"book","note":"","order":8,"title":"Travel clinic: vaccines and malaria advice, 6–8 weeks before","who":""},"t09":{"area":"prep","cost":null,"done":false,"due":"","kind":"plan","note":"","order":9,"title":"Low-fee travel card and tell your banks","who":""},"t10":{"area":"prep","cost":null,"done":false,"due":"","kind":"plan","note":"","order":10,"title":"eSIM or local SIM for both countries","who":""},"t11":{"area":"prep","cost":null,"done":false,"due":"","kind":"plan","note":"","order":11,"title":"Share copies of passports, visas and insurance","who":""},"t12":{"area":"india","cost":null,"costCur":"GBP","done":false,"due":"","kind":"book","note":"","on":"","order":12,"title":"Stay in Delhi","who":""},"t13":{"area":"india","cost":null,"costCur":"GBP","done":false,"due":"","kind":"book","note":"","on":"","order":13,"title":"Stay in Agra","who":""},"t14":{"area":"india","cost":null,"done":false,"due":"","kind":"plan","note":"","order":14,"title":"Pick must-sees and the route between cities","who":""},"t15":{"area":"india","cost":null,"costCur":"GBP","done":false,"due":"","kind":"book","note":"","on":"","order":15,"title":"Flight to Mumbai from Jaipur","who":""},"t18":{"area":"thailand","cost":null,"done":false,"due":"","kind":"book","note":"","order":18,"title":"Ferries and transfers between islands","who":""},"t19":{"area":"thailand","cost":null,"done":false,"due":"","kind":"book","note":"","order":19,"title":"Tours, cooking class or diving","who":""},"xmvig6ndv9uaqg":{"area":"india","cost":null,"costCur":"GBP","done":false,"due":"","kind":"book","note":"","on":"","order":20,"title":"Stay in Mumbai","who":""},"xmvig7fjl3vqdk":{"area":"thailand","cost":null,"costCur":"GBP","done":false,"due":"","kind":"book","note":"","on":"","order":21,"title":"Stay in Bangkok","who":""}},"days":{"d2026-11-28":{"afternoon":"Land at Indira Gandhi International Airport around 15:00, clear immigration and take a prepaid taxi or the Airport Express Metro to your hotel. Check in and freshen up, keeping the rest of the afternoon free to recover from the flight.","auto":true,"evening":"Take a gentle stroll and an early dinner nearby, such as butter chicken and garlic naan at Moti Mahal in Daryaganj or a thali in Connaught Place. Finish with a masala chai or kulfi and get an early night to beat the jet lag.","morning":"Travelling: overnight flight from London to Delhi, so rest and settle in on board.","notes":"","place":"","stay":"","stayBooked":false},"d2026-11-29":{"afternoon":"Stroll through Lodhi Garden to see the 15th-century tombs among the trees. Stop at the Khan Market cafes for a relaxed late lunch.","auto":true,"evening":"Have an easy dinner at Indian Accent or a simple local spot for butter chicken and garlic naan. Head to bed early.","morning":"Arrive in Delhi and transfer to your hotel, then rest and freshen up. Keep the morning free for jet lag."},"d2026-11-30":{"afternoon":"Visit Humayun's Tomb, then walk through the Nizamuddin neighbourhood. Break for chai and a rest at your hotel.","auto":true,"evening":"See India Gate lit up, then have dinner at Karim's near Jama Masjid for mutton korma and seekh kebabs.","morning":"Explore Old Delhi: Jama Masjid and a cycle-rickshaw ride through the lanes of Chandni Chowk. Try parathas at Paranthe Wali Gali."},"d2026-12-01":{"afternoon":"Check in and rest, then wander to the Mehtab Bagh gardens for a first view of the Taj Mahal across the river.","auto":true,"evening":"Eat at a rooftop restaurant with a Taj view, trying Agra's petha sweet and a thali. Turn in early for the sunrise visit.","morning":"Take the morning train from Delhi to Agra, which leaves most of the morning for the journey. Grab a snack at the station."},"d2026-12-02":{"afternoon":"Tour Agra Fort, then visit Itimad-ud-Daulah (the 'Baby Taj'). Pause in between for a relaxed lunch.","auto":true,"evening":"Browse the Kinari Bazaar for handicrafts and sweets. Have dinner of Mughlai dishes and finish with a glass of lassi.","morning":"Visit the Taj Mahal at sunrise, when it is cooler and quieter. Return for a hotel breakfast."},"d2026-12-03":{"afternoon":"Check in, then take a gentle walk around the Pink City near Hawa Mahal. Stop for a kachori and chai.","auto":true,"evening":"Watch the sunset from Nahargarh Fort or relax at a rooftop cafe. Dine on dal baati churma at Chokhi Dhani or a similar Rajasthani spot.","morning":"Catch the morning train from Agra to Jaipur, using the ride to rest and watch the countryside."},"d2026-12-04":{"afternoon":"See the City Palace and Jantar Mantar, then browse Johari Bazaar for jewellery and textiles. Enjoy a lassi at Lassiwala.","auto":true,"evening":"Have a final dinner of laal maas or a veg thali, then pack up. Fly home or onward the next day as planned.","morning":"Visit Amber Fort and walk its courtyards and mirror palace. Go early to avoid crowds."},"d2026-12-05":{"afternoon":"Take a gentle walk around the Pink City near Hawa Mahal, admiring the facade from the cafés opposite. Browse the Johari Bazaar stalls at an easy pace.","auto":true,"evening":"Have a relaxed dinner of dal baati churma at Chokhi Dhani or a rooftop restaurant with a view of the lit-up Hawa Mahal. Turn in early.","morning":"Arrive in Jaipur and check in, then rest after the journey. Stroll to a nearby café for masala chai and a light breakfast."},"d2026-12-06":{"afternoon":"Eat pyaaz kachori and mirchi vada at Rawat Mishthan Bhandar, then visit the City Palace and Jantar Mantar. Cool off with a lassi at Lassiwala on MI Road.","auto":true,"evening":"Watch the sunset from Nahargarh Fort, then have dinner there or back in town. Try laal maas if you eat meat.","morning":"Head to Amber Fort early to beat the crowds, exploring Sheesh Mahal and the courtyards. Stop at Panna Meena ka Kund stepwell nearby for photos."},"d2026-12-07":{"afternoon":"Relax with a long lunch at a courtyard café in C-Scheme, then shop for jewellery and textiles at Bapu Bazaar. Rest at the hotel if needed.","auto":true,"evening":"Enjoy a farewell dinner at a haveli restaurant with live folk music. Finish with kulfi or ghewar from a street vendor.","morning":"Visit Patrika Gate and the colourful Jawahar Circle Gardens for an easy start. Then browse the block-print workshops at Sanganer or Anokhi Museum of Hand Printing."},"d2026-12-08":{"afternoon":"Land in Mumbai, transfer to the hotel and settle in. Keep the rest of the afternoon free for rest.","auto":true,"evening":"Take an easy walk along Marine Drive at sunset, the Queen's Necklace lighting up. Have a simple dinner nearby, such as vada pav or pav bhaji at a local favourite.","morning":"Have a slow breakfast, pack, and check out. Head to Jaipur airport for the flight to Mumbai."},"d2026-12-09":{"afternoon":"Tour the Chhatrapati Shivaji Maharaj Vastu Sangrahalaya museum and the Kala Ghoda art district. Lunch on a thali at a Fort-area restaurant.","auto":true,"evening":"See Chhatrapati Shivaji Terminus lit up, then head to Girgaum Chowpatty for bhel puri and kulfi by the sea.","morning":"Visit the Gateway of India and Taj Mahal Palace exterior, then wander Colaba Causeway. Have a Parsi breakfast of akuri and chai at Kyani & Co."},"d2026-12-10":{"afternoon":"Browse the boutiques and cafés of Bandra, including Linking Road and Bandra Fort. Try a fresh seafood lunch or a classic Bombay sandwich.","auto":true,"evening":"Watch sunset at Bandstand Promenade and have a final dinner in Bandra, perhaps with a seafood or Mangalorean menu. Pack for the journey onward to Thailand.","morning":"Explore Dhobi Ghat from the Mahalaxmi bridge, then visit the Haji Ali Dargah via its causeway. Keep the pace slow."},"d2026-12-11":{"afternoon":"Have a late lunch at Kyani & Co. in Marine Lines with bun maska, chai and keema pav. Then rest at the hotel.","auto":true,"evening":"Stroll along the Marine Drive promenade at sunset, then enjoy pav bhaji and kulfi at Chowpatty beach stalls.","morning":"Arrive in Mumbai and check in, then take a gentle walk along Marine Drive toward Girgaum Chowpatty. Keep it easy after the journey."},"d2026-12-12":{"afternoon":"Eat a Parsi-style lunch of dhansak or berry pulao at Britannia & Co. in Ballard Estate. Then walk to Chhatrapati Shivaji Maharaj Terminus to admire the Victorian Gothic architecture.","auto":true,"evening":"Wander through Colaba Causeway for souvenirs and snacks, then have dinner at Leopold Cafe or a seafood thali at Trishna.","morning":"Visit the Gateway of India and the Taj Mahal Palace exterior, then explore the Chhatrapati Shivaji Maharaj Vastu Sangrahalaya museum in Kala Ghoda. Browse the art galleries on the same streets."},"d2026-12-13":{"afternoon":"Return to the hotel to collect bags and have an early lunch near the airport, such as a vada pav or a thali. Head to the airport in good time for the international flight.","auto":true,"evening":"Evening flight to Bangkok, with the journey taking up the rest of the night. Settle in and rest on board.","morning":"Take a slow morning with breakfast of misal pav or idli at a local Irani cafe. Then visit Crawford Market and the lanes around Mohammed Ali Road for spices and sweets."},"d2026-12-14":{"afternoon":"Keep it light with a bowl of boat noodles near Victory Monument or a lunch of pad kra pao. Then enjoy a relaxed Thai massage nearby.","auto":true,"evening":"Walk around Lumphini Park or the Sukhumvit area, then have dinner at a street food spot with pad thai and mango sticky rice.","morning":"Arrive in Bangkok in the morning, clear immigration and transfer to the hotel. Drop bags and freshen up."},"d2026-12-15":{"afternoon":"Take a cross-river ferry to Wat Arun and have a riverside lunch in Tha Tien. Then wander the Pak Khlong Talat flower market.","auto":true,"evening":"Head to Yaowarat (Chinatown) for street food such as grilled seafood, oyster omelettes and roast duck noodles. Finish with a sweet treat of black sesame dumplings in ginger soup.","morning":"Visit the Grand Palace and Wat Phra Kaew early before the crowds and heat. Then walk to Wat Pho to see the Reclining Buddha."},"d2026-12-16":{"afternoon":"Have a lunch of khao soi or tom yum goong at a cafe in the Siam area, then pick up gifts at MBK Center or Chatuchak Weekend Market if open. Take a break at the hotel before the final evening.","auto":true,"evening":"Take a Chao Phraya dinner cruise or visit a rooftop bar for city views. Wrap up with a final plate of pad thai from Thip Samai.","morning":"Visit Jim Thompson House for a guided tour, then browse the shops and cafes around Siam. Keep the pace easy for the last full day."},"d2026-12-17":{"afternoon":"Take a relaxed longtail or Chao Phraya Express boat to Tha Tien and visit Wat Pho to see the huge Reclining Buddha. Stop for a cold Thai iced tea and mango sticky rice nearby, then wander the Rattanakosin riverside.","auto":true,"evening":"Cross the river by ferry to Wat Arun and watch it light up at dusk from a riverside bar or terrace. Finish with an easy dinner of pad thai and tom yum goong at Thip Samai or a local street-food stall in the Old Town.","morning":"Arrive in Bangkok and transfer to your hotel, then drop bags and rest; keep the morning easy. Grab a simple late breakfast of khao tom or jok (rice porridge) at a neighbourhood shop near your hotel."},"d2026-12-18":{"afternoon":"Head to the airport for your flight home, allowing generous time for Bangkok traffic and check-in. This part of the day is left for the journey.","auto":true,"evening":"Travelling home; settle in for the flight and rest.","morning":"Have a leisurely breakfast of Thai-style coffee and pa thong ko (fried dough) with a last stroll around your neighbourhood, picking up snacks or souvenirs such as dried mango or Thai tea mix. Pack up and check out with plenty of time to spare."},"xmvh0ehh2jbj5w":{"country":"india","date":"2026-11-28","place":"Delhi","plan":"Get SIM card and head to hotel or stay. Relax after long flights.","stay":"","stayBooked":false,"travel":"Flight from UK"},"xmvh0h6hb8pe70":{"country":"india","date":"2026-11-29","place":"Delhi","plan":"Siobhan doesn’t arrive until 3pm, so will need to find something to do.","stay":"","stayBooked":false,"travel":""},"xmvh0vwyu3as7s":{"country":"india","date":"2026-11-30","place":"Delhi","plan":"Arrive in the afternoon. Head to hostel","stay":"","stayBooked":false,"travel":""}},"journeys":{"j-bkk":{"arrDate":"2026-12-14","arrTime":"Morning","booked":false,"depDate":"2026-12-13","depTime":"Evening","from":"","mode":"flight","note":"","ref":"","to":"Bangkok","toCountry":"thailand"},"xmvh2zxhp66hlc":{"arrDate":"2026-11-28","arrTime":"15:00","booked":true,"depDate":"2026-11-27","depTime":"Evening","from":"London","mode":"flight","note":"","ref":"","to":"Delhi","toCountry":"india"},"xmvh329qu6htit":{"arrDate":"2026-12-01","arrTime":"","booked":false,"depDate":"2026-12-01","depTime":"","from":"Delhi","mode":"train","note":"","ref":"","to":"Agra","toCountry":""},"xmvh32rvdo8daf":{"arrDate":"2026-12-03","arrTime":"","booked":false,"depDate":"2026-12-03","depTime":"","from":"Agra","mode":"train","note":"","ref":"","to":"Jaipur","toCountry":""},"xmvh33cram5bts":{"arrDate":"2026-12-08","arrTime":"","booked":false,"depDate":"2026-12-08","depTime":"","from":"Jaipur","mode":"flight","note":"","ref":"","to":"Mumbai","toCountry":""}}};
+const AREAS={prep:"Before you go",india:"India",thailand:"Thailand"};
+const KINDS={book:"To book",trip:"Day trip",arrange:"To arrange"};
+const MODES={flight:"Flight",train:"Train",bus:"Bus",ferry:"Ferry",car:"Taxi / car",other:"Other"};
+const CATS={stay:"Stays",transport:"Transport",food:"Food & drink",activities:"Activities",shopping:"Shopping",other:"Other"};
+const MOODS=[["amazing","Amazing"],["happy","Happy"],["chill","Chilled"],["tired","Tired"],["rough","Rough day"]];
+const MOODN=Object.fromEntries(MOODS);
+const DEFAULTS=[["prep","arrange","Agree rough route and dates together"],["prep","book","Flights UK → India"],["prep","book","Flight India → Thailand"],["prep","book","Flight home from Thailand"],["prep","book","Travel insurance for both of you"],["prep","arrange","Apply for India e-Visa (passport needs 6+ months left)"],["prep","arrange","Check Thailand entry rules and do the arrival card before landing"],["prep","book","Travel clinic: vaccines and malaria advice, 6–8 weeks before"],["prep","arrange","Low-fee travel card and tell your banks"],["prep","arrange","eSIM or local SIM for both countries"],["prep","arrange","Share copies of passports, visas and insurance"],["india","book","First night's stay in India"],["india","book","Long-distance trains (popular routes sell out early)"],["india","arrange","Pick must-sees and the route between cities"],["india","book","Any internal flights"],["thailand","book","First night's stay in Thailand"],["thailand","arrange","Choose islands vs north, and the order"],["thailand","book","Ferries and transfers between islands"],["thailand","trip","Tours, cooking class or diving"]];
+const COLS=["tasks","days","notes","journeys","expenses"];
+const S={tasks:[],days:[],notes:[],journeys:[],expenses:[],meta:{}};
+let db=null, readOnly=false, tab="days", filter="all", whoF="all", sel=null, planning=false, planMsg="", splitting=false, pendingDays=false, addArea=null;
+const addVals={title:"",kind:"book",assignee:"both"};
+const drafts={};
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const uid=()=>"x"+Date.now().toString(36)+Math.random().toString(36).slice(2,7);
+const iso=d=>d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+const today=()=>iso(new Date());
+const pd=s=>{if(!s)return null;const [y,m,d]=s.split("-").map(Number);return new Date(y,m-1,d)};
+const fmt=(s,o)=>{const d=pd(s);return d?d.toLocaleDateString("en-GB",o||{day:"numeric",month:"short"}):""};
+const dayDiff=(a,b)=>Math.round((pd(b)-pd(a))/864e5);
+const CN={india:"India",thailand:"Thailand"};
+const cc=c=>c==="thailand"?"th":c==="india"?"in":"none";
+const PLUS='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>';
+
+/* ---------- people & money ---------- */
+const travellers=()=>{const t=(S.meta&&S.meta.travellers)||[];return [0,1].map(i=>({name:(t[i]&&t[i].name)||(i?"Siobhan":"Daisy"),cur:(t[i]&&t[i].cur)||(i?"EUR":"GBP"),budget:t[i]&&t[i].budget!=null&&t[i].budget!==""?Number(t[i].budget):null}))};
+const rate=()=>Number(S.meta&&S.meta.rate)||0.84;
+const sym=c=>c==="EUR"?"€":"£";
+const money=(v,c)=>(v<0?"−":"")+sym(c)+Math.abs(v).toLocaleString("en-GB",{minimumFractionDigits:2,maximumFractionDigits:2});
+const toGBP=(a,c)=>c==="EUR"?a*rate():a;
+const fromGBP=(g,c)=>c==="EUR"?g/rate():g;
+const asg=t=>t.assignee==="0"||t.assignee==="1"?t.assignee:"both";
+function whoChip(a){const P=travellers();if(a==="0"||a==="1"){const p=P[Number(a)];return '<span class="who w'+a+'"><b>'+esc((p.name[0]||"?").toUpperCase())+'</b>'+esc(p.name)+'</span>'}return '<span class="who wb"><b>2</b>Both</span>'}
+
+/* ---------- Firebase store ---------- */
+firebase.initializeApp(FIREBASE_CONFIG);
+const auth=firebase.auth(),fs=firebase.firestore();
+try{fs.settings({ignoreUndefinedProperties:true,merge:true})}catch(e){}
+fs.enablePersistence({synchronizeTabs:true}).catch(()=>{});
+let user=null,unsubs=[],denied=false;
+function showNotice(t){const n=$("notice");n.textContent=t;n.hidden=!t}
+const clean=o=>JSON.parse(JSON.stringify(o));
+function put(col,item){
+  if(readOnly||!user)return Promise.resolve();
+  const {id,...data}=item;
+  fs.collection(col).doc(id).set(clean(data)).catch(handleErr);
+  return Promise.resolve();
+}
+function remove(col,id){
+  if(readOnly||!user)return Promise.resolve();
+  fs.collection(col).doc(id).delete().catch(handleErr);
+  return Promise.resolve();
+}
+function putMeta(m){
+  if(readOnly||!user)return Promise.resolve();
+  fs.doc("trip/meta").set(clean(m)).catch(handleErr);
+  return Promise.resolve();
+}
+function handleErr(e){
+  if(e&&e.code==="permission-denied"){gate("denied");return}
+  showNotice("That change didn't save. Check your connection and try again.");
+}
+/* photos live in the database, shrunk to phone size */
+const photoCache={};
+const blobToURL=b=>new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result);r.onerror=rej;r.readAsDataURL(b)});
+const photoStore={
+  async upload(blob){
+    const data=await blobToURL(blob);
+    if(data.length>950000)throw {code:"too_large"};
+    const ref=fs.collection("photos").doc();
+    await Promise.race([ref.set({data,created:Date.now(),by:user?user.uid:""}),new Promise(r=>setTimeout(r,2500))]);
+    photoCache[ref.id]=data;
+    return {id:ref.id,url:data};
+  },
+  delete(id){return fs.collection("photos").doc(id).delete()}
+};
+const getAssets=()=>Promise.resolve(user?photoStore:null);
+const loading={};
+function hydratePhotos(){
+  document.querySelectorAll("img[data-ph]:not([src])").forEach(im=>{
+    const id=im.dataset.ph;
+    if(photoCache[id]){im.src=photoCache[id];return}
+    if(loading[id])return;
+    loading[id]=fs.collection("photos").doc(id).get().then(d=>{
+      delete loading[id];
+      if(d.exists&&d.data().data){photoCache[id]=d.data().data;document.querySelectorAll('img[data-ph="'+id+'"]').forEach(x=>{if(!x.src)x.src=photoCache[id]})}
+      else document.querySelectorAll('img[data-ph="'+id+'"]').forEach(x=>x.replaceWith(Object.assign(document.createElement("span"),{className:"img-miss",textContent:"Photo not available"})));
+    }).catch(()=>{delete loading[id]});
+  });
+}
+new MutationObserver(hydratePhotos).observe(document.body,{childList:true,subtree:true});
+function gate(state,extra){
+  const g=$("gate"),app=$("app");
+  if(state==="open"){g.hidden=true;app.hidden=false;return}
+  g.hidden=false;app.hidden=true;
+  $("signIn").hidden=state!=="signin";$("switchAcc").hidden=state!=="denied";
+  $("gateMsg").textContent=state==="signin"?"Sign in to open your trip planner":state==="denied"?"This Google account isn't on the trip list":"Opening your planner…";
+  $("gateHint").textContent=state==="signin"?(extra||"Use the Google account Daisy added. If the sign-in window doesn't open, open this page in Safari or Chrome rather than inside another app."):state==="denied"?((user&&user.email?user.email+" can't open this planner. ":"")+"Sign in with the account Daisy added to the list."):"";
+  if(state==="denied"){denied=true;unsubs.forEach(f=>f());unsubs=[]}
+}
+async function seedIfEmpty(){
+  const meta=await fs.doc("trip/meta").get();
+  if(meta.exists)return;
+  const b=fs.batch();
+  b.set(fs.doc("trip/meta"),SEED.meta);
+  ["tasks","days","journeys"].forEach(col=>Object.entries(SEED[col]||{}).forEach(([id,d])=>b.set(fs.collection(col).doc(id),d)));
+  await b.commit();
+}
+auth.onAuthStateChanged(async u=>{
+  user=u;denied=false;unsubs.forEach(f=>f());unsubs=[];
+  if(!u){gate("signin");return}
+  gate("loading");
+  try{await seedIfEmpty()}catch(e){if(e&&e.code==="permission-denied"){gate("denied");return}}
+  if(denied)return;
+  $("whoAmI").textContent="Signed in as "+(u.email||u.displayName||"you");
+  gate("open");render();
+  const fail=e=>{if(e&&e.code==="permission-denied")gate("denied")};
+  COLS.forEach(col=>unsubs.push(fs.collection(col).onSnapshot({includeMetadataChanges:true},s=>{S[col]=s.docs.map(x=>({id:x.id,...x.data()}));setSync(s.metadata);render()},fail)));
+  unsubs.push(fs.doc("trip/meta").onSnapshot(s=>{S.meta=s.exists?{...s.data()}:{};render()},fail));
+});
+function setSync(md){const el=$("sync");const off=md.fromCache||md.hasPendingWrites;el.classList.toggle("off",off);el.lastChild.textContent=md.hasPendingWrites?"Saving…":md.fromCache?"Offline, will sync":"Synced"}
+function signIn(){
+  const p=new firebase.auth.GoogleAuthProvider();p.setCustomParameters({prompt:"select_account"});
+  auth.signInWithPopup(p).catch(e=>{
+    const c=e&&e.code;
+    if(c==="auth/popup-blocked"||c==="auth/operation-not-supported-in-this-environment")return auth.signInWithRedirect(p);
+    if(c==="auth/popup-closed-by-user"||c==="auth/cancelled-popup-request")return;
+    gate("signin",c==="auth/unauthorized-domain"?"This web address hasn't been approved in Firebase yet. Add it under Authentication → Settings → Authorised domains.":"Sign-in didn't work. Check your connection and try again.");
+  });
+}
+$("signIn").onclick=signIn;
+$("switchAcc").onclick=()=>auth.signOut().then(signIn);
+$("signOut").onclick=()=>auth.signOut();
+window.addEventListener("online",()=>{const el=$("sync");if(el)el.lastChild.textContent="Synced"});
+
+/* keep focus and caret when a live update re-renders */
+function keepFocus(fn){
+  const a=document.activeElement,id=a&&a.id,inField=id&&a.matches&&a.matches("input,textarea,select");
+  let s=null;if(inField){try{s=[a.selectionStart,a.selectionEnd]}catch(e){}}
+  fn();
+  if(inField){const n=$(id);if(n&&n!==a){n.focus();if(s&&n.setSelectionRange){try{n.setSelectionRange(s[0],s[1])}catch(e){}}}}
+}
+
+/* ---------- render ---------- */
+function render(){
+  const m=S.meta||{};
+  $("tripTitle").textContent=m.title||"India & Thailand";
+  const bits=[];
+  if(m.people)bits.push(m.people);
+  if(m.start&&m.end)bits.push(fmt(m.start,{day:"numeric",month:"short"})+" – "+fmt(m.end,{day:"numeric",month:"short",year:"numeric"}));
+  $("metaLine").textContent=bits.length?bits.join("  ·  "):"Add your dates and who's going.";
+  $("editTrip").hidden=readOnly;
+  $("addNote").hidden=readOnly;
+  renderHero();
+  const act=document.activeElement;
+  if(act&&$("dayPlanner").contains(act)&&act.matches("textarea,input")){pendingDays=true}else renderDays();
+  keepFocus(renderTasks);renderMoney();renderNotes();
+}
+function renderHero(){
+  const m=S.meta||{},t=today(),mini=$("miniCount");
+  let big='<div class="big">–</div>',lab="Add your leaving date",date="",chips=[],btn="",miniTxt="";
+  const firstDep=S.journeys.map(j=>j.depDate).filter(Boolean).sort()[0];
+  const leave=m.start&&firstDep&&firstDep<m.start&&dayDiff(firstDep,m.start)<=2?firstDep:m.start;
+  if(m.start){
+    const until=dayDiff(t,leave);
+    if(until>0){
+      big='<div class="big">'+until+'</div>';lab=until===1?"day until we fly":"days until we fly";
+      date="Leaving "+fmt(leave,{weekday:"long",day:"numeric",month:"long"});
+      const w=Math.floor(until/7),d=until%7;
+      if(w)chips.push(w+" week"+(w>1?"s":"")+(d?", "+d+" day"+(d>1?"s":""):""));
+      miniTxt=until+(until===1?" day":" days")+" to go";
+    }else if(m.end&&dayDiff(t,m.end)>=0){
+      const x=schedule().find(s=>s.date===t);
+      big='<div class="big word">Day '+(1-until)+'</div>';lab=x&&x.place?"in "+x.place:"of the trip";
+      date=fmt(t,{weekday:"long",day:"numeric",month:"long"});
+      miniTxt="Day "+(1-until)+" of "+(dayDiff(m.start,m.end)+1);
+    }else{big='<div class="big word">Home</div>';lab="What a trip";miniTxt="Trip done"}
+    if(m.end)chips.push((dayDiff(m.start,m.end)+1)+"-day trip");
+  }else if(!readOnly)btn='<button class="btn gold" type="button" data-act="trip">Set our leaving date</button>';
+  const nj=S.journeys.filter(j=>j.depDate&&j.depDate>=t&&j.depDate!==leave).sort((a,b)=>a.depDate.localeCompare(b.depDate))[0];
+  if(nj)chips.push("Next: "+(MODES[nj.mode]||"Travel").toLowerCase()+" to "+(nj.to||"?")+", "+fmt(nj.depDate,{day:"numeric",month:"short"}));
+  $("heroIn").innerHTML='<div class="eyebrow">Countdown to take-off</div>'+big+'<div class="big-lab">'+esc(lab)+'</div>'+(date?'<div class="hero-date">'+esc(date)+'</div>':'')+(chips.length?'<div class="hero-row">'+chips.map(c=>'<span>'+esc(c)+'</span>').join("")+'</div>':'')+btn;
+  $("hero").hidden=tab!=="days";
+  mini.textContent=miniTxt;mini.hidden=tab==="days"||!miniTxt;
+}
+setInterval(()=>{renderHero()},60000);
+
+/* ---------- itinerary ---------- */
+const ICONS={
+  flight:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.5 13.5 3 11l1.5-1.5 8 .5 4-4.5c1-1 2.5-1.5 3-1s0 2-1 3L14 12l.5 8L13 21.5 10.5 14"/></svg>',
+  train:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="14" rx="3"/><path d="M5 11h14M9 21l-2-3M15 21l2-3"/></svg>',
+  bus:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="15" rx="2"/><path d="M4 11h16M7 21v-3M17 21v-3"/></svg>',
+  ferry:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17c2 1.5 4 1.5 6 0s4-1.5 6 0 4 1.5 6 0M5 14l1-5h12l1 5M9 9V5h6v4"/></svg>',
+  car:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 16V11l2-5h10l2 5v5M3 16h18v2H3zM5 11h14"/><circle cx="7.5" cy="18.5" r="1.5"/><circle cx="16.5" cy="18.5" r="1.5"/></svg>'
+};
+ICONS.other=ICONS.car;
+function dayMap(){const m={};S.days.forEach(d=>m[d.id]=d);return m}
+function journeysOn(date){return S.journeys.filter(j=>j.depDate===date||j.arrDate===date||(j.depDate&&j.arrDate&&j.depDate<date&&j.arrDate>date)).sort((a,b)=>(a.depDate||"").localeCompare(b.depDate||""))}
+function schedule(){
+  const m=S.meta||{};if(!m.start||!m.end||m.end<m.start)return [];
+  const route=(m.route||[]).filter(r=>r&&r.place);
+  const n=dayDiff(m.start,m.end)+1,map=dayMap(),out=[],bounds=[];let acc=0;
+  route.forEach(r=>{const nn=Math.max(1,Math.round(Number(r.nights)||1));bounds.push([acc,acc+nn]);acc+=nn});
+  const arrivals=S.journeys.filter(j=>j.arrDate&&j.to).sort((a,b)=>a.arrDate.localeCompare(b.arrDate));
+  for(let k=0;k<n;k++){const d=pd(m.start);d.setDate(d.getDate()+k);const date=iso(d);
+    let li=bounds.findIndex(b=>k>=b[0]&&k<b[1]);
+    if(li<0&&k===acc&&route.length)li=route.length-1;
+    const leg=li>=0?route[li]:null;
+    const from=li>0&&k===bounds[li][0]?route[li-1].place:null;
+    const lastArr=arrivals.filter(j=>j.arrDate<=date).pop();
+    const doc=map["d"+date]||{id:"d"+date};
+    const place=doc.place||(leg?leg.place:"")||(lastArr?lastArr.to:"");
+    const country=doc.country||(leg?leg.country:"")||(lastArr?lastArr.toCountry:"");
+    out.push({k,date,leg,from,place,country,arrive:k===0,home:k===n-1&&n>1,doc,js:journeysOn(date),
+      planned:!!(doc.morning||doc.afternoon||doc.evening)});
+  }
+  return out;
+}
+function jWhen(d,t){return [d?fmt(d,{weekday:"short",day:"numeric",month:"short"}):"",t||""].filter(Boolean).join(" · ")}
+function journeyCard(j){
+  return '<div class="journey" data-act="editjourney" data-id="'+esc(j.id)+'" tabindex="0"><div class="jicon">'+(ICONS[j.mode]||ICONS.other)+'</div><div class="jbody">'+
+    '<div class="jt">'+esc(MODES[j.mode]||"Travel")+(j.from||j.to?' · '+esc(j.from||"?")+' → '+esc(j.to||"?"):'')+'</div>'+
+    '<div class="jl"><span>Leaves</span><span>'+esc(jWhen(j.depDate,j.depTime)||"Not set")+'</span></div>'+
+    '<div class="jl"><span>Arrives</span><span>'+esc(jWhen(j.arrDate,j.arrTime)||"Not set")+'</span></div>'+
+    '<div class="tags" style="margin-top:4px">'+(j.booked?'<span class="tag ok">Booked</span>':'<span class="tag no">Not booked</span>')+(j.ref?'<span class="tag">Ref '+esc(j.ref)+'</span>':'')+'</div>'+
+    (j.note?'<div class="hint">'+esc(j.note)+'</div>':'')+'</div></div>';
+}
+function renderDays(){
+  pendingDays=false;
+  const m=S.meta||{},sch=schedule(),el=$("dayPlanner");
+  const route=(m.route||[]).filter(r=>r&&r.place);
+  if(!m.start||!m.end){
+    const up=[...S.journeys].sort((a,b)=>(a.depDate||"").localeCompare(b.depDate||""));
+    el.innerHTML='<div class="empty"><h3>Add your trip dates to see every day</h3><div>Once you set when you leave and come home, each day of the trip appears here, ready to fill in.</div>'+(readOnly?'':'<button class="btn" type="button" data-act="trip">Add trip dates</button>')+'</div>'+
+      (up.length?'<div class="group"><div class="group-h"><h2>Travel</h2>'+(readOnly?'':'<button class="btn ghost small" type="button" data-act="addjourney">Add travel</button>')+'</div>'+up.map(journeyCard).join("")+'</div>':'');
+    return}
+  if(!sel||!sch.find(x=>x.date===sel)){const t=today();sel=(sch.find(x=>x.date===t)||sch[0]).date}
+  const i=sch.findIndex(x=>x.date===sel),x=sch[i],dd=pd(x.date);
+  const tags=[];
+  if(x.arrive)tags.push('<span class="tag">Arrival day</span>');
+  if(x.from)tags.push('<span class="tag">Moving from '+esc(x.from)+'</span>');
+  if(x.js.length)tags.push('<span class="tag">Travel day</span>');
+  if(x.home)tags.push('<span class="tag">Fly home</span>');
+  if(x.doc.auto)tags.push('<span class="tag auto">Suggested plan</span>');
+  const slot=(k,lab,v)=>'<div class="slot" data-act="editday" data-id="'+k+'"><div class="lab">'+lab+'</div><div class="txt'+(v?'':' empty-txt')+'">'+(v?esc(v):'Nothing planned yet')+'</div></div>';
+  let html='<div class="strip" id="strip">'+sch.map(d=>{const q=pd(d.date);return '<button type="button" class="dbtn '+cc(d.country)+(d.planned?' planned':'')+(d.js.length?' move':'')+'" data-act="sel" data-id="'+d.date+'"'+(d.date===sel?' aria-current="true"':'')+'><span class="dn">'+q.toLocaleDateString("en-GB",{weekday:"short"})+'</span><b>'+q.getDate()+'</b><span class="pl">'+esc(d.place||q.toLocaleDateString("en-GB",{month:"short"}))+'</span><i></i></button>'}).join("")+'</div>';
+  const draft=drafts[x.date]!=null?drafts[x.date]:"";
+  html+='<div class="dayview"><div class="dv-head '+cc(x.country)+'"><div class="dv-top"><div><div class="eyebrow">Day '+(x.k+1)+' of '+sch.length+' · '+dd.toLocaleDateString("en-GB",{weekday:"long",day:"numeric",month:"long"})+'</div><h2>'+esc(x.place||"Where to?")+'</h2></div>'+
+    '<div class="dv-nav"><button class="icon-btn" type="button" data-act="prev" aria-label="Previous day"'+(i<=0?" disabled":"")+'>‹</button><button class="icon-btn" type="button" data-act="next" aria-label="Next day"'+(i>=sch.length-1?" disabled":"")+'>›</button></div></div>'+
+    (tags.length?'<div class="tags">'+tags.join("")+'</div>':'')+'</div>';
+  if(x.js.length||!readOnly)html+='<div class="sec"><div class="sec-h"><div class="eyebrow">Travel</div>'+(readOnly?'':'<button class="btn ghost small" type="button" data-act="addjourney">Add travel</button>')+'</div>'+(x.js.length?x.js.map(journeyCard).join(""):'<div class="hint">No travel today. Add a flight, train, bus or ferry if you\'re moving on.</div>')+'</div>';
+  if(!readOnly)html+='<div class="sec quick"><label class="eyebrow" for="quick">What are you doing today? Separate things with commas</label><textarea id="quick" placeholder="e.g. Amber Fort first thing, lunch at a rooftop café, bazaar shopping, then dinner and a sunset walk">'+esc(draft)+'</textarea><div class="quick-row"><button class="btn small" type="button" data-act="split"'+(splitting?" disabled":"")+'>'+(splitting?"Splitting…":"Split into morning, afternoon &amp; evening")+'</button></div></div>';
+  html+='<div class="slots">'+slot("morning","Morning",x.doc.morning)+slot("afternoon","Afternoon",x.doc.afternoon)+slot("evening","Evening",x.doc.evening)+(x.doc.notes?slot("notes","Notes",x.doc.notes):"")+'</div>';
+  if(!x.home)html+='<div class="stay-row"><div><span>Sleeping:</span>'+(x.doc.stay?'<strong>'+esc(x.doc.stay)+'</strong>':'<span class="hint">no place added</span>')+(x.doc.stayBooked?'<span class="tag ok">Booked</span>':'<span class="tag no">Not booked</span>')+'</div>'+(readOnly?'':'<div style="display:flex;gap:6px"><button class="btn ghost small" type="button" data-act="staytoggle">'+(x.doc.stayBooked?"Mark not booked":"Mark booked")+'</button><button class="btn ghost small" type="button" data-act="editday" data-id="stay">Edit</button></div>')+'</div>';
+  const dn=S.notes.filter(n=>n.date===x.date),ph=[];dn.forEach(n=>(n.photos||[]).forEach((p,pi)=>ph.push([n.id,pi,p])));
+  html+='<div class="sec"><div class="sec-h"><div class="eyebrow">Diary</div>'+(readOnly?'':'<button class="btn ghost small" type="button" data-act="newnote" data-date="'+x.date+'" data-where="'+esc(x.place||"")+'">'+(dn.length?"Add another entry":"Write about this day")+'</button>')+'</div>'+
+    (ph.length?'<div class="thumbs">'+ph.slice(0,8).map(([nid,pi,p])=>'<button type="button" data-act="photo" data-id="'+esc(nid)+'" data-i="'+pi+'" aria-label="Open photo">'+img(p,"")+'</button>').join("")+'</div>':'')+
+    (dn.length?dn.map(n=>'<div class="hint">'+esc(n.title||n.best||"Diary entry")+'</div>').join(""):'<div class="hint">No diary entry for this day yet.</div>')+'</div>';
+  if(!readOnly)html+='<div class="dv-actions"><button class="btn" type="button" data-act="editday">Edit day</button>'+'</div>';
+  html+='</div>';
+  html+='<div class="group"><div class="group-h"><h2>Whole trip</h2><span class="eyebrow">'+sch.filter(d=>d.planned).length+' / '+sch.length+' days planned</span></div><ul class="overview">'+
+    sch.map(d=>{const q=pd(d.date);const jt=d.js.map(j=>MODES[j.mode]||"Travel");return '<li class="ov '+cc(d.country)+'" data-act="sel" data-id="'+d.date+'" tabindex="0"'+(d.date===sel?' aria-current="true"':'')+'><div class="d"><strong>'+q.toLocaleDateString("en-GB",{weekday:"short",day:"numeric"})+'</strong>'+q.toLocaleDateString("en-GB",{month:"short"})+'</div><div class="b"><div class="p"><i></i>'+esc(d.place||"Where to?")+jt.map(t=>' <span class="tag">'+esc(t)+'</span>').join("")+(!d.home&&d.doc.stayBooked?' <span class="tag ok">Stay booked</span>':'')+'</div><div class="s">'+esc([d.doc.morning,d.doc.afternoon,d.doc.evening].filter(Boolean).join(" · ")||"Nothing planned yet")+'</div></div></li>'}).join("")+'</ul></div>';
+  const nights=route.reduce((a,r)=>a+Math.max(1,Math.round(Number(r.nights)||1)),0),tripN=sch.length-1;
+  html+='<div class="route-bar"><div class="group-h"><h2>Route</h2>'+(readOnly?'':'<button class="edit-link" type="button" data-act="route">'+(route.length?"Edit route":"Add route")+'</button>')+'</div>'+
+    (route.length?'<div class="route">'+route.map((r,i)=>(i?'<span class="arrow">→</span>':'')+'<span class="stop '+cc(r.country)+'">'+esc(r.place)+'<small>'+Math.max(1,Math.round(Number(r.nights)||1))+'n</small></span>').join("")+'</div>'+
+      (nights!==tripN?'<div class="route-sum">'+nights+' of '+tripN+' nights on the route</div>':'')
+      :'<div class="route-sum">Optional: list your stops and nights in each, and every day fills in with where you are. Without it, places follow your travel.</div>')+'</div>';
+  el.innerHTML=html;
+  const cur=el.querySelector('.dbtn[aria-current="true"]');if(cur){const st=$("strip");st.scrollLeft=Math.max(0,cur.offsetLeft-st.clientWidth/2+34)}
+}
+function editDay(focusKey){const x=schedule().find(d=>d.date===sel);if(!x)return;
+  openSheet({title:"Day "+(x.k+1)+" · "+fmt(x.date,{weekday:"short",day:"numeric",month:"short"}),values:{...x.doc,place:x.doc.place||""},focus:focusKey,
+    fields:[{k:"morning",l:"Morning",t:"textarea"},{k:"afternoon",l:"Afternoon",t:"textarea"},{k:"evening",l:"Evening",t:"textarea"},{k:"stay",l:"Where you're sleeping",p:"Hotel or hostel name"},{k:"stayBooked",l:"Accommodation is booked",t:"check"},{k:"place",l:"Where you are (leave blank to fill in automatically)",p:x.place||"e.g. Jaipur"},{k:"notes",l:"Notes",t:"textarea",p:"Booking refs, opening times, reminders"}],
+    onSave:v=>put("days",{...x.doc,...v,id:"d"+x.date,auto:false})})}
+function editJourney(id){
+  const x=id?S.journeys.find(j=>j.id===id):{id:uid(),mode:"flight",from:"",to:"",toCountry:"",depDate:sel||"",depTime:"",arrDate:sel||"",arrTime:"",booked:false,ref:"",note:""};
+  if(!x)return;
+  openSheet({title:id?"Edit travel":"Add travel",values:x,fields:[
+    [{k:"mode",l:"How",t:"select",o:Object.entries(MODES)},{k:"toCountry",l:"Arriving in",t:"select",o:[["","Same country"],["india","India"],["thailand","Thailand"]]}],
+    [{k:"from",l:"From",p:"e.g. Delhi"},{k:"to",l:"To",p:"e.g. Bangkok"}],
+    [{k:"depDate",l:"Leaves on",t:"date"},{k:"depTime",l:"Leaves at",p:"e.g. 21:40 or Evening"}],
+    [{k:"arrDate",l:"Arrives on",t:"date"},{k:"arrTime",l:"Arrives at",p:"e.g. 06:15 or Morning"}],
+    {k:"ref",l:"Booking reference",p:"Optional"},{k:"booked",l:"Booked",t:"check"},{k:"note",l:"Notes",t:"textarea",p:"Terminal, seat numbers, baggage"}],
+    onSave:v=>{if(v.arrDate&&v.depDate&&v.arrDate<v.depDate)v.arrDate=v.depDate;put("journeys",{...x,...v})},onDelete:id?()=>remove("journeys",id):null})
+}
+function openRouteSheet(){
+  if(readOnly)return;
+  const m=S.meta||{};let rows=(m.route||[]).map(r=>({...r}));if(!rows.length)rows=[{place:"",country:"india",nights:3}];
+  const tripN=m.start&&m.end?dayDiff(m.start,m.end):0,root=$("sheetRoot");
+  root.innerHTML='<div class="sheet-bg" id="sheetBg"><form class="sheet" id="routeForm" role="dialog" aria-modal="true" aria-label="Your route"><h2>Your route</h2><div class="route-sum">In order, where you\'re staying and for how many nights.</div><div id="rRows" style="display:grid;gap:12px"></div><div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><button type="button" class="btn ghost" id="rAdd">Add a stop</button><span class="route-sum" id="rSum"></span></div><div class="field"><label for="f_interests">What you\'re both into (used for suggested plans)</label><textarea id="f_interests" placeholder="e.g. street food, temples, beaches, a few nights out">'+esc(m.interests||"")+'</textarea></div><div class="sheet-actions"><span></span><div><button type="button" class="btn ghost" id="sCancel">Cancel</button><button type="submit" class="btn">Save route</button></div></div></form></div>';
+  const read=()=>{rows=[...root.querySelectorAll(".route-row")].map(r=>({place:r.querySelector("[data-k=place]").value.trim(),country:r.querySelector("[data-k=country]").value,nights:Math.max(1,Math.round(Number(r.querySelector("[data-k=nights]").value)||1))}))};
+  const sum=()=>{const t=rows.reduce((a,r)=>a+(Number(r.nights)||0),0);$("rSum").textContent=t+" nights"+(tripN?" of "+tripN:"")};
+  const draw=()=>{$("rRows").innerHTML=rows.map((r,i)=>'<div class="route-row"><div class="field"><label for="rp'+i+'">Stop '+(i+1)+'</label><input id="rp'+i+'" data-k="place" value="'+esc(r.place)+'" placeholder="City or island"></div><div class="field"><label for="rc'+i+'">Country</label><select id="rc'+i+'" data-k="country"><option value="india"'+(r.country!=="thailand"?" selected":"")+'>India</option><option value="thailand"'+(r.country==="thailand"?" selected":"")+'>Thailand</option></select></div><div class="field"><label for="rn'+i+'">Nights</label><input id="rn'+i+'" data-k="nights" type="number" min="1" inputmode="numeric" value="'+esc(r.nights)+'"></div><button type="button" class="icon-btn rm" data-rm="'+i+'" aria-label="Remove stop">×</button></div>').join("");sum()};
+  draw();
+  const close=()=>{root.innerHTML="";document.removeEventListener("keydown",esck);if(pendingDays)renderDays()};
+  const esck=e=>{if(e.key==="Escape")close()};document.addEventListener("keydown",esck);
+  $("sheetBg").addEventListener("click",e=>{if(e.target.id==="sheetBg")close()});
+  $("sCancel").onclick=close;
+  $("rAdd").onclick=()=>{read();const last=rows[rows.length-1];rows.push({place:"",country:last?last.country:"india",nights:2});draw();const ins=root.querySelectorAll("[data-k=place]");ins[ins.length-1].focus()};
+  $("rRows").addEventListener("click",e=>{const b=e.target.closest("[data-rm]");if(!b)return;read();rows.splice(Number(b.dataset.rm),1);draw()});
+  $("rRows").addEventListener("input",()=>{read();sum()});
+  $("routeForm").addEventListener("submit",e=>{e.preventDefault();read();putMeta({...(S.meta||{}),route:rows.filter(r=>r.place),interests:$("f_interests").value.trim()});close()});
+}
+function splitLocal(text){
+  const parts=text.split(/\n|;|,|\.\s|\bthen\b|\band then\b|\bafter that\b/i).map(s=>s.replace(/^\s*(and|then)\s+/i,"").trim()).filter(Boolean);
+  const out={morning:[],afternoon:[],evening:[]},rest=[];
+  for(const p of parts){
+    if(/\b(breakfast|sunrise|morning|early)\b/i.test(p))out.morning.push(p);
+    else if(/\b(lunch|afternoon|midday)\b/i.test(p))out.afternoon.push(p);
+    else if(/\b(dinner|evening|night|sunset|bar|drinks|show)\b/i.test(p))out.evening.push(p);
+    else rest.push(p);
+  }
+  const order=["morning","afternoon","evening"];
+  rest.forEach((p,i)=>{const empty=order.find(k=>!out[k].length);const k=empty||order[Math.min(2,Math.floor(i*3/Math.max(rest.length,1)))];out[k].push(p)});
+  const cap=s=>s.charAt(0).toUpperCase()+s.slice(1);
+  return {morning:out.morning.map(cap).join(", "),afternoon:out.afternoon.map(cap).join(", "),evening:out.evening.map(cap).join(", ")};
+}
+const clip=v=>typeof v==="string"?v.trim().slice(0,500):"";
+async function splitDay(){
+  if(readOnly||splitting)return;
+  const x=schedule().find(d=>d.date===sel);const q=$("quick");if(!x||!q)return;
+  const text=q.value.trim();if(!text){q.focus();return}
+  put("days",{...x.doc,...splitLocal(text),id:"d"+x.date,auto:false});
+  delete drafts[x.date];q.value="";q.blur();renderDays();
+}
+/* ---------- to-do ---------- */
+const tick='<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7" stroke="var(--on-accent)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const kindOf=k=>k==="plan"?"arrange":(KINDS[k]?k:"book");
+function renderTasks(){
+  const t=today(),P=travellers(),A=S.tasks,done=A.filter(x=>x.done).length;
+  const left=a=>A.filter(x=>!x.done&&asg(x)===a).length;
+  let html='<div class="gauge"><div class="g-top"><div><div class="g-num">'+done+'<span> / '+A.length+'</span></div><div class="eyebrow">to-dos done</div></div>'+
+    '<div class="g-people"><span>'+esc(P[0].name)+' <b>'+left("0")+'</b> left</span><span>'+esc(P[1].name)+' <b>'+left("1")+'</b> left</span><span>Both <b>'+left("both")+'</b> left</span></div></div>'+
+    '<div class="bar" role="progressbar" aria-label="To-dos done" aria-valuemin="0" aria-valuemax="'+A.length+'" aria-valuenow="'+done+'"><i style="width:'+(A.length?Math.round(done/A.length*100):0)+'%"></i></div></div>';
+  html+='<div style="display:grid;gap:8px"><div class="chips" role="group" aria-label="Whose to-dos">'+[["all","Everyone"],["0",P[0].name],["1",P[1].name],["both","Both of us"]].map(([v,l])=>'<button type="button" class="chip" data-act="whof" data-id="'+v+'" aria-pressed="'+(whoF===v)+'">'+esc(l)+'</button>').join("")+'</div>'+
+    '<div class="chips" role="group" aria-label="Filter">'+[["all","All"],["open","Still to do"],["book","To book"],["trip","Day trips"],["arrange","To arrange"]].map(([v,l])=>'<button type="button" class="chip" data-act="filt" data-id="'+v+'" aria-pressed="'+(filter===v)+'">'+l+'</button>').join("")+'</div></div>';
+  let T=[...A].sort((a,b)=>(a.done-b.done)||((a.due||"9999")<(b.due||"9999")?-1:(a.due||"9999")>(b.due||"9999")?1:0)||((a.order||0)-(b.order||0)));
+  if(filter==="open")T=T.filter(x=>!x.done);
+  if(KINDS[filter])T=T.filter(x=>kindOf(x.kind)===filter);
+  if(whoF!=="all")T=T.filter(x=>asg(x)===whoF);
+  for(const a of Object.keys(AREAS)){
+    const items=T.filter(x=>(x.area||"prep")===a),all=A.filter(x=>(x.area||"prep")===a);
+    html+='<div class="group"><div class="group-h"><h2>'+AREAS[a]+'</h2><div class="gh-r"><span class="eyebrow num">'+all.filter(x=>x.done).length+' / '+all.length+'</span>'+(readOnly?'':'<button type="button" class="plus" data-act="addopen" data-id="'+a+'" aria-expanded="'+(addArea===a)+'" aria-label="Add a to-do to '+AREAS[a]+'">'+PLUS+'</button>')+'</div></div>';
+    if(addArea===a&&!readOnly){
+      html+='<form class="inline-add" data-area="'+a+'"><input id="add-title" value="'+esc(addVals.title)+'" placeholder="Add to '+AREAS[a]+'…" aria-label="New to-do" autocomplete="off" enterkeyhint="done">'+
+        '<div class="ia-row"><select id="add-kind" aria-label="Type">'+Object.entries(KINDS).map(([v,l])=>'<option value="'+v+'"'+(addVals.kind===v?" selected":"")+'>'+l+'</option>').join("")+'</select>'+
+        '<select id="add-who" aria-label="Who\'s doing it">'+[["both","Both of us"],["0",P[0].name],["1",P[1].name]].map(([v,l])=>'<option value="'+v+'"'+(addVals.assignee===v?" selected":"")+'>'+esc(l)+'</option>').join("")+'</select>'+
+        '<button class="btn" type="submit">Add</button></div></form>';
+    }
+    if(!all.length)html+='<div class="notice">Nothing here yet. Tap + to add one.</div>';
+    else if(!items.length)html+='<div class="notice">Nothing matches these filters.</div>';
+    else html+='<ul class="list">'+items.map(x=>{
+      const k=kindOf(x.kind),meta=[whoChip(asg(x)),'<span class="pill '+k+'">'+KINDS[k]+'</span>'];
+      if(x.on)meta.push('<span>On '+esc(fmt(x.on,{weekday:"short",day:"numeric",month:"short"}))+'</span>');
+      if(x.due){const late=!x.done&&x.due<t;meta.push(late?'<span class="pill overdue">Due '+esc(fmt(x.due))+'</span>':'<span>Book by '+esc(fmt(x.due))+'</span>')}
+      return '<li class="row'+(x.done?" done":"")+'"><button class="check" data-act="toggle" data-id="'+esc(x.id)+'" aria-label="'+(x.done?"Mark not done":"Mark done")+'" '+(readOnly?"disabled":"")+'>'+tick+'</button>'+
+        '<div class="r-body" data-act="edit" data-id="'+esc(x.id)+'"><div class="r-title">'+esc(x.title)+'</div><div class="r-meta">'+meta.join("")+'</div>'+(x.note?'<div class="r-note">'+esc(x.note)+'</div>':'')+'</div>'+
+        '<div class="cost">'+(Number(x.cost)?money(Number(x.cost),x.costCur||"GBP"):"")+'</div></li>'}).join("")+'</ul>';
+    html+='</div>';
+  }
+  $("todoView").innerHTML=html;
+}
+function editTask(id){const x=S.tasks.find(t=>t.id===id);if(!x)return;const P=travellers();
+  openSheet({title:"Edit to-do",values:{...x,kind:kindOf(x.kind),assignee:asg(x),costCur:x.costCur||"GBP"},fields:[{k:"title",l:"What needs doing"},
+    [{k:"assignee",l:"Who's doing it",t:"select",o:[["both","Both of us"],["0",P[0].name],["1",P[1].name]]},{k:"kind",l:"Type",t:"select",o:Object.entries(KINDS)}],
+    {k:"area",l:"Part of trip",t:"select",o:Object.entries(AREAS)},
+    [{k:"on",l:"Happening on",t:"date"},{k:"due",l:"Book by",t:"date"}],
+    [{k:"cost",l:"Est. cost",t:"number"},{k:"costCur",l:"Currency",t:"select",o:[["GBP","£ GBP"],["EUR","€ EUR"]]}],
+    {k:"note",l:"Notes",t:"textarea",p:"Links, booking refs, options you're weighing"},{k:"done",l:"Done",t:"check"}],
+    onSave:v=>{if(!v.title)return;put("tasks",{...x,...v})},onDelete:()=>remove("tasks",id)})}
+
+/* ---------- budget ---------- */
+function ledger(){
+  const P=travellers(),net=[0,0],paid=[0,0],share=[0,0],cats={};
+  for(const e of S.expenses){
+    const amt=Number(e.amount)||0,g=toGBP(amt,e.cur),p=Number(e.paidBy)===1?1:0,o=1-p;
+    if(e.kind==="settle"){net[p]+=g;net[o]-=g;continue}
+    paid[p]+=g;
+    const forW=e.split==="both"||e.split==null?"both":String(e.split);
+    const mine=forW==="both"?g/2:(Number(forW)===p?g:0),theirs=g-mine;
+    share[p]+=mine;share[o]+=theirs;net[p]+=theirs;net[o]-=theirs;
+    const c=CATS[e.cat]?e.cat:"other";cats[c]=(cats[c]||0)+g;
+  }
+  return {P,net,paid,share,cats};
+}
+function renderMoney(){
+  const el=$("moneyView"),{P,net,paid,share,cats}=ledger(),r=rate();
+  let html='',line,alt="";
+  const owed=net[0];
+  if(Math.abs(owed)<0.005)line=S.expenses.length?'You\'re all square.':'No spending logged yet.';
+  else{const creditor=owed>0?0:1,debtor=1-creditor,amt=Math.abs(owed);
+    line=esc(P[debtor].name)+' owes '+esc(P[creditor].name)+' <em>'+money(fromGBP(amt,P[debtor].cur),P[debtor].cur)+'</em>';
+    if(P[debtor].cur!==P[creditor].cur)alt='That\'s '+money(fromGBP(amt,P[creditor].cur),P[creditor].cur)+' to '+esc(P[creditor].name);}
+  html+='<div class="settle"><div class="jaali" aria-hidden="true"></div><div style="position:relative;display:grid;gap:8px"><div class="eyebrow">Settle up</div><div class="big2">'+line+'</div>'+(alt?'<div class="alt">'+alt+'</div>':'')+
+    '<div class="rate-line"><span>€1 = £'+r.toFixed(4)+' · £1 = €'+(1/r).toFixed(4)+(S.meta&&S.meta.rateDate?' · set '+esc(fmt(S.meta.rateDate,{day:"numeric",month:"short"})):'')+'</span></div>'+
+    (readOnly?'':'<div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn ghost small" type="button" data-act="settle">Record a payment</button><button class="btn ghost small" type="button" data-act="moneysettings">Rate &amp; budgets</button></div>')+'</div></div>';
+  if(!readOnly)html+='<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">'+P.map((p,i)=>'<button class="btn'+(i?' ghost':'')+'" type="button" data-act="addexp" data-id="'+i+'">'+esc(p.name)+' spent…</button>').join("")+'</div>';
+  html+='<div class="people">'+P.map((p,i)=>{
+    const sh=fromGBP(share[i],p.cur),pdv=fromGBP(paid[i],p.cur);
+    return '<div class="person"><h3>'+esc(p.name)+'</h3><div class="eyebrow">In '+(p.cur==="EUR"?"euros":"pounds")+'</div><div class="kvs"><span>Paid out</span><span>'+money(pdv,p.cur)+'</span><span>Share of costs</span><span>'+money(sh,p.cur)+'</span>'+
+      (p.budget!=null?'<span>Budget</span><span>'+money(p.budget,p.cur)+'</span><span>Left</span><span>'+money(p.budget-sh,p.cur)+'</span>':'')+'</div>'+
+      (p.budget?'<div class="bar"><i style="width:'+Math.min(100,Math.max(0,sh/p.budget*100)).toFixed(1)+'%"></i></div>':'')+'</div>'}).join("")+'</div>';
+  const catKeys=Object.keys(cats).sort((a,b)=>cats[b]-cats[a]),maxC=Math.max(1,...catKeys.map(k=>cats[k]));
+  if(catKeys.length)html+='<div class="group"><div class="group-h"><h2>Where it\'s going</h2><span class="eyebrow">in £</span></div><div class="cats">'+catKeys.map(k=>'<div class="cat"><span>'+CATS[k]+'</span><div class="cb"><i style="width:'+(cats[k]/maxC*100).toFixed(1)+'%"></i></div><span class="cv">'+money(cats[k],"GBP")+'</span></div>').join("")+'</div></div>';
+  const E=[...S.expenses].sort((a,b)=>(b.date||"").localeCompare(a.date||"")||(b.created||0)-(a.created||0));
+  html+='<div class="group"><div class="group-h"><h2>Spending log</h2><span class="eyebrow">'+E.length+' entr'+(E.length===1?"y":"ies")+'</span></div>';
+  if(!E.length)html+='<div class="empty"><h3>Nothing logged yet</h3><div>Each of you adds what you spend in your own currency. Say whether it was for both of you or just one, and the page works out who owes whom.</div></div>';
+  else html+='<ul class="list">'+E.map(e=>{const p=Number(e.paidBy)===1?1:0,o=1-p,amt=Number(e.amount)||0;
+    const forW=e.kind==="settle"?"Paid back "+P[o].name:(e.split==="both"||e.split==null?"Split 50/50":(Number(e.split)===p?"Just for "+P[p].name:"For "+P[o].name));
+    const alt2=e.cur==="EUR"?money(toGBP(amt,"EUR"),"GBP"):money(fromGBP(amt,"EUR"),"EUR");
+    return '<li class="exp" data-act="editexp" data-id="'+esc(e.id)+'" tabindex="0"><div style="min-width:0"><div class="t">'+esc(e.kind==="settle"?"Payment":(e.desc||CATS[e.cat]||"Expense"))+'</div><div class="m">'+esc(P[p].name)+' paid · '+esc(forW)+(e.date?' · '+esc(fmt(e.date)):'')+(e.kind!=="settle"&&CATS[e.cat]?' · '+CATS[e.cat]:'')+'</div></div><div class="a">'+money(amt,e.cur||"GBP")+'<small>≈ '+alt2+'</small></div></li>'}).join("")+'</ul>';
+  html+='</div>';
+  el.innerHTML=html;
+}
+function editExpense(id,payer,settle){
+  const P=travellers();
+  const x=id?S.expenses.find(e=>e.id===id):{id:uid(),kind:settle?"settle":"spend",desc:"",amount:null,cur:P[payer||0].cur,paidBy:String(payer||0),split:"both",cat:"food",date:today(),created:Date.now()};
+  if(!x)return;
+  const isSettle=x.kind==="settle",fields=[];
+  if(!isSettle)fields.push({k:"desc",l:"What for",p:"e.g. Hostel in Jaipur, 2 nights"});
+  fields.push([{k:"amount",l:"Amount",t:"number"},{k:"cur",l:"Currency",t:"select",o:[["GBP","£ GBP"],["EUR","€ EUR"]]}]);
+  fields.push([{k:"paidBy",l:isSettle?"Who paid it back":"Who paid",t:"select",o:P.map((p,i)=>[String(i),p.name])},{k:"date",l:"Date",t:"date"}]);
+  if(!isSettle)fields.push([{k:"split",l:"Who it was for",t:"select",o:[["both","Both of us, 50/50"],["0","Just "+P[0].name],["1","Just "+P[1].name]]},{k:"cat",l:"Category",t:"select",o:Object.entries(CATS)}]);
+  openSheet({title:isSettle?(id?"Edit payment":"Record a payment"):(id?"Edit spending":"Add spending"),values:{...x,paidBy:String(x.paidBy??0),split:x.split==null?"both":String(x.split)},fields,
+    onSave:v=>{if(!(Number(v.amount)>0))return;put("expenses",{...x,...v,paidBy:Number(v.paidBy)})},onDelete:id?()=>remove("expenses",id):null});
+}
+function moneySettings(){
+  const P=travellers(),m=S.meta||{};
+  openSheet({title:"Rate & budgets",values:{n0:P[0].name,c0:P[0].cur,b0:P[0].budget,n1:P[1].name,c1:P[1].cur,b1:P[1].budget,rate:rate()},fields:[
+    {k:"rate",l:"Exchange rate: £ per €1",t:"number"},
+    [{k:"n0",l:"Traveller 1"},{k:"c0",l:"Tracks in",t:"select",o:[["GBP","£ GBP"],["EUR","€ EUR"]]}],
+    {k:"b0",l:"Their trip budget (optional)",t:"number"},
+    [{k:"n1",l:"Traveller 2"},{k:"c1",l:"Tracks in",t:"select",o:[["GBP","£ GBP"],["EUR","€ EUR"]]}],
+    {k:"b1",l:"Their trip budget (optional)",t:"number"}],
+    onSave:v=>{const nr=Number(v.rate)>0?Number(v.rate):rate();putMeta({...m,rate:nr,rateDate:nr!==rate()?today():(m.rateDate||""),travellers:[{name:v.n0||"Traveller 1",cur:v.c0,budget:v.b0},{name:v.n1||"Traveller 2",cur:v.c1,budget:v.b1}]})}});
+}
+
+/* ---------- diary ---------- */
+const img=(id,alt)=>'<img data-ph="'+esc(id)+'" alt="'+esc(alt||"")+'"'+(photoCache[id]?' src="'+photoCache[id]+'"':'')+'>';
+function renderNotes(){
+  const el=$("noteList"),P=travellers();
+  const N=[...S.notes].sort((a,b)=>(b.date||"").localeCompare(a.date||"")||(b.created||0)-(a.created||0));
+  if(!N.length){el.innerHTML='<div class="empty"><h3>Your diary is empty</h3><div>Add photos from the day, how you each felt and the best bit, so you can look back on it all later.</div>'+(readOnly?'':'<button class="btn" type="button" data-act="newnote">Write the first entry</button>')+'</div>';return}
+  el.innerHTML=N.map(n=>{
+    const ph=n.photos||[],shown=ph.slice(0,4);
+    const pics=ph.length?'<div class="pics n'+shown.length+'">'+shown.map((p,i)=>'<button type="button" data-act="photo" data-id="'+esc(n.id)+'" data-i="'+i+'" aria-label="Open photo '+(i+1)+' of '+ph.length+'">'+img(p)+(i===3&&ph.length>4?'<span class="more">+'+(ph.length-4)+'</span>':'')+'</button>').join("")+'</div>':'';
+    const moods=n.moods||{},ml=[0,1].filter(i=>moods[i]&&MOODN[moods[i]]).map(i=>'<span class="mchip"><i class="m-'+esc(moods[i])+'"></i>'+esc(P[i].name)+': '+MOODN[moods[i]]+'</span>').join("");
+    return '<article class="entry">'+pics+'<div class="entry-b"><div class="top"><div><div class="eyebrow">'+esc(n.date?fmt(n.date,{weekday:"short",day:"numeric",month:"short"}):"Undated")+(n.where?' · '+esc(n.where):'')+'</div>'+(n.title?'<h3>'+esc(n.title)+'</h3>':'')+'</div>'+(readOnly?'':'<button class="btn ghost small" type="button" data-act="editnote" data-id="'+esc(n.id)+'">Edit</button>')+'</div>'+
+      (ml?'<div class="moodline">'+ml+'</div>':'')+
+      (n.best?'<div class="best"><div class="eyebrow">Best bit</div><div>'+esc(n.best)+'</div></div>':'')+
+      (n.text?'<p>'+esc(n.text)+'</p>':'')+'</div></article>'}).join("");
+}
+async function shrink(file){
+  for(const [mx,q] of [[1400,.8],[1100,.72],[900,.62]]){const b=await shrinkTo(file,mx,q);if(b&&b.size<690000)return b}
+  throw {code:"too_large"};
+}
+async function shrinkTo(file,max,quality){
+  try{
+    let src;
+    try{src=await createImageBitmap(file)}catch(e){
+      src=await new Promise((res,rej)=>{const im=new Image(),u=URL.createObjectURL(file);im.onload=()=>res(im);im.onerror=()=>{URL.revokeObjectURL(u);rej(e)};im.src=u})}
+    const w=src.width||src.naturalWidth,h=src.height||src.naturalHeight,s=Math.min(1,max/Math.max(w,h));
+    const c=document.createElement("canvas");c.width=Math.round(w*s);c.height=Math.round(h*s);
+    c.getContext("2d").drawImage(src,0,0,c.width,c.height);
+    const b=await new Promise(r=>c.toBlob(r,"image/jpeg",quality));
+    if(b)return b;
+  }catch(e){}
+  if(/^image\/(jpeg|png|webp|gif)$/.test(file.type))return file;
+  throw {code:"unsupported_type"};
+}
+function openDiary(id,presetDate,presetWhere){
+  if(readOnly)return;
+  const P=travellers();
+  const x=id?S.notes.find(n=>n.id===id):{id:uid(),date:presetDate||today(),where:presetWhere||"",title:"",moods:{},best:"",text:"",photos:[],created:Date.now()};
+  if(!x)return;
+  let photos=[...(x.photos||[])],moods={...(x.moods||{})},busy=0,A=null,saved=false;
+  const fresh=new Set(),removed=new Set(),urls={};
+  const root=$("sheetRoot");
+  root.innerHTML='<div class="sheet-bg" id="sheetBg"><form class="sheet" id="diaryForm" role="dialog" aria-modal="true" aria-label="Diary entry"><h2>'+(id?"Edit entry":"New diary entry")+'</h2>'+
+    '<div class="two"><div class="field"><label for="d_date">Date</label><input id="d_date" type="date" value="'+esc(x.date)+'"></div><div class="field"><label for="d_where">Where</label><input id="d_where" value="'+esc(x.where)+'" placeholder="e.g. Jaipur"></div></div>'+
+    '<div class="field"><label for="d_title">Title</label><input id="d_title" value="'+esc(x.title)+'" placeholder="e.g. Sunrise at Amber Fort"></div>'+
+    '<div class="field"><span class="flabel">Photos</span><div class="ph-grid" id="phGrid"></div><div class="hint" id="phMsg" aria-live="polite"></div></div>'+
+    '<div class="field"><span class="flabel">How did you feel?</span>'+P.map((p,i)=>'<div class="mood-row"><span class="mood-name">'+esc(p.name)+'</span><div class="moods" data-p="'+i+'">'+MOODS.map(([k,l])=>'<button type="button" class="mood" data-mood="'+k+'" aria-pressed="'+(moods[i]===k)+'"><i class="m-'+k+'"></i>'+l+'</button>').join("")+'</div></div>').join("")+'</div>'+
+    '<div class="field"><label for="d_best">Best bit of the day</label><textarea id="d_best" style="min-height:60px" placeholder="The moment you\'ll remember">'+esc(x.best)+'</textarea></div>'+
+    '<div class="field"><label for="d_text">What we got up to</label><textarea id="d_text" placeholder="Where you went, what you ate, who you met">'+esc(x.text)+'</textarea></div>'+
+    '<div class="sheet-actions">'+(id?'<button type="button" class="btn danger" id="sDel">Delete</button>':'<span></span>')+'<div><button type="button" class="btn ghost" id="sCancel">Cancel</button><button type="submit" class="btn" id="sSave">Save</button></div></div></form></div>';
+  const msg=t=>{const m=$("phMsg");if(m)m.textContent=t};
+  const draw=()=>{
+    const g=$("phGrid");if(!g)return;
+    g.innerHTML=photos.map(p=>'<div class="ph">'+(urls[p]?'<img src="'+urls[p]+'" alt="">':img(p,""))+'<button type="button" data-rmph="'+esc(p)+'" aria-label="Remove photo">×</button></div>').join("")+
+      (A?'<label class="ph add" for="phInput"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>Add photos</span></label><input id="phInput" type="file" accept="image/*" multiple hidden>':'');
+    const inp=$("phInput");if(inp)inp.addEventListener("change",onFiles);
+    $("sSave").disabled=busy>0;
+  };
+  draw();
+  getAssets().then(a=>{A=a;if(!$("phGrid"))return;if(!A)msg("Sign in again to add photos.");draw()});
+  async function onFiles(e){
+    const files=[...e.target.files];e.target.value="";if(!files.length||!A)return;
+    let n=0;
+    for(const f of files){
+      busy++;n++;msg("Adding photo "+n+" of "+files.length+"…");draw();
+      try{const b=await shrink(f);const up=await A.upload(b,b.type?undefined:{type:"image/jpeg"});photos.push(up.id);fresh.add(up.id);urls[up.id]=up.url;busy--;draw();}
+      catch(err){busy--;const c=err&&err.code;msg(c==="too_large"?"That photo is too big to add.":c==="unsupported_type"?"That file can't be added. Try a JPEG or PNG photo.":c==="quota_or_state"?"The planner's storage is full. Remove some old photos first.":c==="rate_limited"?"Too many photos at once. Wait a moment and try again.":"Couldn't add that photo. Try again.");draw();if(!$("phGrid"))return;continue}
+      if(!$("phGrid"))return;
+    }
+    const m=$("phMsg");if(busy===0&&m&&/^Adding/.test(m.textContent))msg("");
+  }
+  $("phGrid").addEventListener("click",e=>{const b=e.target.closest("[data-rmph]");if(!b)return;const p=b.dataset.rmph;photos=photos.filter(q=>q!==p);removed.add(p);draw()});
+  root.querySelectorAll(".moods").forEach(g=>g.addEventListener("click",e=>{const b=e.target.closest(".mood");if(!b)return;const p=g.dataset.p,k=b.dataset.mood;
+    if(moods[p]===k)delete moods[p];else moods[p]=k;g.querySelectorAll(".mood").forEach(m=>m.setAttribute("aria-pressed",moods[p]===m.dataset.mood))}));
+  const cleanup=list=>{if(!A)return;list.forEach(p=>A.delete(p).catch(()=>{}))};
+  const close=()=>{if(!saved)cleanup([...fresh]);root.innerHTML="";document.removeEventListener("keydown",esck);if(pendingDays)renderDays()};
+  const esck=e=>{if(e.key==="Escape")close()};document.addEventListener("keydown",esck);
+  $("sheetBg").addEventListener("click",e=>{if(e.target.id==="sheetBg")close()});
+  $("sCancel").onclick=close;
+  if(id){let armed=false;$("sDel").onclick=()=>{if(!armed){armed=true;$("sDel").textContent="Tap again to delete";return}remove("notes",id);cleanup([...(x.photos||[]),...fresh]);saved=true;close()}}
+  $("diaryForm").addEventListener("submit",async e=>{e.preventDefault();if(busy)return;
+    const v={date:$("d_date").value,where:$("d_where").value.trim(),title:$("d_title").value.trim(),best:$("d_best").value.trim(),text:$("d_text").value.trim()};
+    if(!v.title&&!v.text&&!v.best&&!photos.length&&!Object.keys(moods).length){close();return}
+    saved=true;const keep=[...removed].filter(p=>!photos.includes(p));close();await put("notes",{...x,...v,moods,photos});cleanup(keep)});
+}
+function openLightbox(noteId,i){
+  const n=S.notes.find(x=>x.id===noteId);if(!n)return;const ph=n.photos||[];if(!ph.length)return;
+  let k=Math.max(0,Math.min(ph.length-1,Number(i)||0));const root=$("lightRoot");
+  const draw=()=>{root.innerHTML='<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo"><div class="lb-top"><span>'+esc(n.title||fmt(n.date,{weekday:"short",day:"numeric",month:"short"}))+(ph.length>1?' · '+(k+1)+' of '+ph.length:'')+'</span><button class="icon-btn" type="button" id="lbX" aria-label="Close">×</button></div>'+img(ph[k],n.title||"Diary photo")+
+    (ph.length>1?'<div class="lb-nav"><button class="icon-btn" type="button" id="lbP" aria-label="Previous photo"'+(k<=0?" disabled":"")+'>‹</button><button class="icon-btn" type="button" id="lbN" aria-label="Next photo"'+(k>=ph.length-1?" disabled":"")+'>›</button></div>':'<div></div>')+'</div>';
+    $("lbX").onclick=close;if($("lbP")){$("lbP").onclick=()=>{if(k>0){k--;draw()}};$("lbN").onclick=()=>{if(k<ph.length-1){k++;draw()}}}
+    $("lbX").focus()};
+  const close=()=>{root.innerHTML="";document.removeEventListener("keydown",keys);root.ontouchstart=root.ontouchend=null};
+  const keys=e=>{if(e.key==="Escape")close();if(e.key==="ArrowLeft"&&k>0){k--;draw()}if(e.key==="ArrowRight"&&k<ph.length-1){k++;draw()}};
+  document.addEventListener("keydown",keys);draw();
+  let sx=null;root.ontouchstart=e=>{sx=e.touches[0].clientX};root.ontouchend=e=>{if(sx==null)return;const dx=e.changedTouches[0].clientX-sx;sx=null;if(dx<-50&&k<ph.length-1){k++;draw()}else if(dx>50&&k>0){k--;draw()}};
+}
+
+/* ---------- sheet editor ---------- */
+function openSheet({title,fields,values,onSave,onDelete,focus}){
+  if(readOnly)return;
+  const root=$("sheetRoot");
+  const f=fields.map(row=>{
+    const cells=(Array.isArray(row)?row:[row]).map(fd=>{
+      const id="f_"+fd.k,v=values[fd.k]??"";
+      let input;
+      if(fd.t==="select")input='<select id="'+id+'">'+fd.o.map(([val,lab])=>'<option value="'+esc(val)+'"'+(String(val)===String(v)?" selected":"")+'>'+esc(lab)+'</option>').join("")+'</select>';
+      else if(fd.t==="textarea")input='<textarea id="'+id+'" placeholder="'+esc(fd.p||"")+'">'+esc(v)+'</textarea>';
+      else if(fd.t==="check")return '<label class="toggle"><input type="checkbox" id="'+id+'"'+(v?" checked":"")+'> '+esc(fd.l)+'</label>';
+      else input='<input id="'+id+'" type="'+(fd.t||"text")+'" value="'+esc(v)+'" placeholder="'+esc(fd.p||"")+'"'+(fd.t==="number"?' inputmode="decimal" min="0" step="any"':'')+'>';
+      return '<div class="field"><label for="'+id+'">'+esc(fd.l)+'</label>'+input+'</div>';
+    }).join("");
+    return Array.isArray(row)?'<div class="two">'+cells+'</div>':cells;
+  }).join("");
+  root.innerHTML='<div class="sheet-bg" id="sheetBg"><form class="sheet" id="sheetForm" role="dialog" aria-modal="true" aria-label="'+esc(title)+'"><h2>'+esc(title)+'</h2>'+f+
+    '<div class="sheet-actions">'+(onDelete?'<button type="button" class="btn danger" id="sDel">Delete</button>':'<span></span>')+'<div><button type="button" class="btn ghost" id="sCancel">Cancel</button><button type="submit" class="btn">Save</button></div></div></form></div>';
+  const close=()=>{root.innerHTML="";document.removeEventListener("keydown",esck);if(pendingDays)renderDays()};
+  const esck=e=>{if(e.key==="Escape")close()};
+  document.addEventListener("keydown",esck);
+  $("sheetBg").addEventListener("click",e=>{if(e.target.id==="sheetBg")close()});
+  $("sCancel").onclick=close;
+  if(onDelete){let armed=false;$("sDel").onclick=()=>{if(!armed){armed=true;$("sDel").textContent="Tap again to delete";return}onDelete();close()}}
+  $("sheetForm").addEventListener("submit",e=>{e.preventDefault();const out={};
+    fields.flat().forEach(fd=>{const el=$("f_"+fd.k);out[fd.k]=fd.t==="check"?el.checked:fd.t==="number"?(el.value===""?null:Number(el.value)):el.value.trim()});
+    onSave(out);close()});
+  const first=focus&&$("f_"+focus);if(first)first.focus();
+}
+
+/* ---------- events ---------- */
+function showTab(t){tab=t;
+  document.querySelectorAll(".tab").forEach(x=>x.setAttribute("aria-selected",x.dataset.tab===t));
+  ["days","book","money","diary"].forEach(k=>$("p-"+k).hidden=k!==t);
+  renderHero();
+  try{localStorage.setItem("ind-th-tab3",t)}catch(e){}}
+document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{showTab(b.dataset.tab);window.scrollTo({top:0})});
+try{const t=localStorage.getItem("ind-th-tab3");if(t&&$("p-"+t))showTab(t)}catch(e){}
+$("addNote").onclick=()=>openDiary(null);
+function editTrip(){const m=S.meta||{};openSheet({title:"Trip details",values:{title:m.title||"India & Thailand",start:m.start||"",end:m.end||"",people:m.people||""},
+  fields:[{k:"title",l:"Trip name"},[{k:"start",l:"Leave",t:"date"},{k:"end",l:"Home",t:"date"}],{k:"people",l:"Who's going",p:"e.g. Daisy & Siobhan"}],onSave:v=>putMeta({...m,...v})})}
+$("editTrip").onclick=editTrip;
+document.addEventListener("input",e=>{
+  if(e.target.id==="quick"&&sel)drafts[sel]=e.target.value;
+  if(e.target.id==="add-title")addVals.title=e.target.value;
+});
+document.addEventListener("change",e=>{
+  if(e.target.id==="add-kind")addVals.kind=e.target.value;
+  if(e.target.id==="add-who")addVals.assignee=e.target.value;
+});
+document.addEventListener("submit",e=>{
+  const f=e.target.closest&&e.target.closest(".inline-add");if(!f)return;e.preventDefault();
+  const inp=$("add-title"),title=((inp&&inp.value)||"").trim();if(!title){if(inp)inp.focus();return}
+  const maxO=Math.max(0,...S.tasks.map(t=>t.order||0));
+  addVals.title="";inp.value="";inp.focus();
+  put("tasks",{id:uid(),area:f.dataset.area,kind:addVals.kind,assignee:addVals.assignee,title,done:false,due:"",on:"",cost:null,note:"",order:maxO+1});
+});
+document.addEventListener("focusout",e=>{if(e.target.id==="quick")setTimeout(()=>{const a=document.activeElement;if(pendingDays&&!(a&&$("dayPlanner").contains(a)&&a.matches("textarea,input")))renderDays()},150)});
+document.addEventListener("click",e=>{const el=e.target.closest("[data-act]");if(!el)return;const id=el.dataset.id;
+  switch(el.dataset.act){
+    case"toggle":{const x=S.tasks.find(t=>t.id===id);if(x)put("tasks",{...x,done:!x.done});break}
+    case"edit":editTask(id);break;
+    case"whof":whoF=id;renderTasks();break;
+    case"filt":filter=id;renderTasks();break;
+    case"addopen":addArea=addArea===id?null:id;renderTasks();if(addArea){const t=$("add-title");if(t)t.focus()}break;
+    case"editday":editDay(id);break;
+    case"editnote":openDiary(id);break;
+    case"newnote":openDiary(null,el.dataset.date,el.dataset.where);break;
+    case"photo":openLightbox(id,el.dataset.i);break;
+    case"sel":sel=id;renderDays();break;
+    case"prev":case"next":{const sch=schedule(),i=sch.findIndex(x=>x.date===sel)+(el.dataset.act==="next"?1:-1);if(sch[i]){sel=sch[i].date;renderDays()}break}
+    case"staytoggle":{const x=schedule().find(d=>d.date===sel);if(x)put("days",{...x.doc,id:"d"+x.date,stayBooked:!x.doc.stayBooked});break}
+    case"split":splitDay();break;
+    case"route":openRouteSheet();break;
+    case"trip":editTrip();break;
+    case"addjourney":editJourney(null);break;
+    case"editjourney":editJourney(id);break;
+    case"addexp":editExpense(null,Number(id),false);break;
+    case"editexp":editExpense(id);break;
+    case"settle":editExpense(null,0,true);break;
+    case"moneysettings":moneySettings();break;
+  }});
+document.addEventListener("keydown",e=>{if(e.key==="Enter"&&e.target.matches(".ov,.journey,.exp"))e.target.click()});
+})();
+</script>
+</body>
+</html>
